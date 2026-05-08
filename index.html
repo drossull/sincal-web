@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINCAL – Ingeniería</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Sincal.png">
+</head>
+<body>
+
+    <div class="top-controls">
+        <button class="btn-control" id="lang-toggle">ES / EN</button>
+        <button class="btn-control" id="theme-toggle">🌙 Oscuro</button>
+    </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <nav>
+                <ul>
+                    <li><a href="index.html" data-es="Home" data-en="Home">Home</a></li>
+                    <li><a href="acerca.html" data-es="Acerca de Sincal" data-en="About Sincal">Acerca de Sincal</a></li>
+                    <li><a href="servicios.html" data-es="Servicios" data-en="Services">Servicios</a></li>
+                    <li class="dropdown">
+                        <a href="#todos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+                        <ul class="submenu">
+                            <li><a href="#finalizados" data-es="- Finalizados" data-en="- Completed">- Finalizados</a></li>
+                            <li><a href="#desarrollo" data-es="- En Desarrollo" data-en="- In Progress">- En Desarrollo</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="equipo.html" data-es="Equipo" data-en="Team">Equipo</a></li>
+                    <li><a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="sidebar-bottom">
+            <p data-es="San Pio X 2460, of 1801<br>Santiago, Chile" data-en="2460 San Pio X, Suite 1801<br>Santiago, Chile">San Pio X 2460, of 1801<br>Santiago, Chile</p>
+            <p class="copyright">&copy; 2026 SINCAL</p>
+        </div>
+    </aside>
+
+    <main class="contenido-principal">
+        
+        <div class="logo-container" id="home">
+            <a href="index.html">
+                <img src="Sincal.png" alt="Logo SINCAL" class="logo-main">
+            </a>
+        </div>
+
+        <section id="proyectos">
+            <div class="grid-proyectos" id="contenedor-proyectos">
+                </div>
+        </section>
+    </main>
+
+    <script>
+        // MODO OSCURO CON MEMORIA
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggleBtn.innerHTML = '☀️ Claro';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggleBtn.innerHTML = '☀️ Claro';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggleBtn.innerHTML = '🌙 Oscuro';
+            }
+        });
+
+        // IDIOMA CON MEMORIA
+        const langToggleBtn = document.getElementById('lang-toggle');
+        let currentLang = localStorage.getItem('lang') || 'es';
+
+        function aplicarIdioma(lang) {
+            langToggleBtn.innerHTML = lang === 'en' ? 'EN / ES' : 'ES / EN';
+            const elements = document.querySelectorAll('[data-es][data-en]');
+            elements.forEach(el => {
+                if (el.innerHTML.includes('<br>')) {
+                    el.innerHTML = el.getAttribute(`data-${lang}`);
+                } else {
+                    el.textContent = el.getAttribute(`data-${lang}`);
+                }
+            });
+        }
+
+        aplicarIdioma(currentLang);
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('lang', currentLang);
+            aplicarIdioma(currentLang);
+            cargarProyectos(); 
+        });
+
+        // CARGA Y FILTRO DE PROYECTOS
+        async function cargarProyectos() {
+            try {
+                const respuesta = await fetch('proyectos.json');
+                const proyectos = await respuesta.json();
+                const contenedor = document.getElementById('contenedor-proyectos');
+                contenedor.innerHTML = '';
+                
+                const propTitulo = currentLang === 'en' ? 'titulo_en' : 'titulo_es';
+                let filtro = window.location.hash.substring(1); 
+                if (filtro !== 'finalizados' && filtro !== 'desarrollo') {
+                    filtro = 'todos'; 
+                }
+
+                const proyectosFiltrados = proyectos.filter(proyecto => {
+                    return filtro === 'todos' || proyecto.estado === filtro;
+                });
+
+                proyectosFiltrados.forEach(proyecto => {
+                    contenedor.innerHTML += `
+                        <div class="proyecto-card">
+                            <img src="${proyecto.imagen}" alt="${proyecto[propTitulo]}">
+                            <div class="proyecto-info">
+                                <h3>${proyecto[propTitulo]}</h3>
+                            </div>
+                        </div>`;
+                });
+            } catch (e) {
+                console.error("Error al cargar JSON: ", e);
+            }
+        }
+
+        cargarProyectos();
+        window.addEventListener('hashchange', cargarProyectos);
+    </script>
+</body>
+</html>

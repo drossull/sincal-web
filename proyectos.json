@@ -1,0 +1,38 @@
+[
+    {
+        "imagen": "img/finalizados/proyecto1.jpg",
+        "titulo_es": "Edificio Norte",
+        "titulo_en": "North Building",
+        "estado": "finalizados"
+    },
+    {
+        "imagen": "img/finalizados/proyecto2.jpg",
+        "titulo_es": "Puente Sur",
+        "titulo_en": "South Bridge",
+        "estado": "finalizados"
+    },
+    {
+        "imagen": "img/finalizados/proyecto3.jpg",
+        "titulo_es": "Planta Industrial",
+        "titulo_en": "Industrial Plant",
+        "estado": "finalizados"
+    },
+    {
+        "imagen": "img/desarrollo/proyecto4.jpg",
+        "titulo_es": "Centro Logístico",
+        "titulo_en": "Logistics Center",
+        "estado": "desarrollo"
+    },
+    {
+        "imagen": "img/desarrollo/proyecto5.jpg",
+        "titulo_es": "Complejo Habitacional",
+        "titulo_en": "Residential Complex",
+        "estado": "desarrollo"
+    },
+    {
+        "imagen": "img/desarrollo/proyecto6.jpg",
+        "titulo_es": "Hospital Central",
+        "titulo_en": "Central Hospital",
+        "estado": "desarrollo"
+    }
+]

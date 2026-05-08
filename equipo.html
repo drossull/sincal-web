@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINCAL – Equipo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Sincal.png">
+</head>
+<body>
+
+    <div class="top-controls">
+        <button class="btn-control" id="lang-toggle">ES / EN</button>
+        <button class="btn-control" id="theme-toggle">🌙 Oscuro</button>
+    </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <nav>
+                <ul>
+                    <li><a href="index.html" data-es="Home" data-en="Home">Home</a></li>
+                    <li><a href="acerca.html" data-es="Acerca de Sincal" data-en="About Sincal">Acerca de Sincal</a></li>
+                    <li><a href="servicios.html" data-es="Servicios" data-en="Services">Servicios</a></li>
+                    <li class="dropdown">
+                        <a href="index.html#todos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+                        <ul class="submenu">
+                            <li><a href="index.html#finalizados" data-es="- Finalizados" data-en="- Completed">- Finalizados</a></li>
+                            <li><a href="index.html#desarrollo" data-es="- En Desarrollo" data-en="- In Progress">- En Desarrollo</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="equipo.html" data-es="Equipo" data-en="Team">Equipo</a></li>
+                    <li><a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="sidebar-bottom">
+            <p data-es="San Pio X 2460, of 1801<br>Santiago, Chile" data-en="2460 San Pio X, Suite 1801<br>Santiago, Chile">San Pio X 2460, of 1801<br>Santiago, Chile</p>
+            <p class="copyright">&copy; 2026 SINCAL</p>
+        </div>
+    </aside>
+
+    <main class="contenido-principal">
+        <div class="logo-container" id="equipo">
+            <a href="index.html">
+                <img src="Sincal.png" alt="Logo SINCAL" class="logo-main">
+            </a>
+        </div>
+
+        <section class="seccion-texto">
+            <div class="encabezado-seccion">
+                <h1 data-es="Nuestro Equipo" data-en="Our Team">Nuestro Equipo</h1>
+                <p data-es="Conoce a los profesionales detrás de nuestra ingeniería." data-en="Meet the professionals behind our engineering.">Conoce a los profesionales detrás de nuestra ingeniería.</p>
+            </div>
+
+            <div class="acerca-contenido">
+                <p data-es="Contamos con un equipo altamente capacitado de 17 profesionales calculistas y proyectistas, comprometidos con la excelencia técnica, la innovación y la seguridad en cada uno de los proyectos que desarrollamos." 
+                   data-en="We have a highly trained team of 17 structural engineers and drafters, committed to technical excellence, innovation, and safety in each of the projects we develop.">
+                   Contamos con un equipo altamente capacitado de 17 profesionales calculistas y proyectistas, comprometidos con la excelencia técnica, la innovación y la seguridad en cada uno de los proyectos que desarrollamos.
+                </p>
+            </div>
+
+            <div class="grid-equipo">
+                
+                <div class="equipo-card">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante">
+                    <div class="equipo-info">
+                        <h3>Nombre Apellido</h3>
+                        <p class="cargo" data-es="Ingeniero Estructural Senior" data-en="Senior Structural Engineer">Ingeniero Estructural Senior</p>
+                        <div class="equipo-detalles">
+                            <p class="especialidad">Especialista en BrIM y Rust</p>
+                            <a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="equipo-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante">
+                    <div class="equipo-info">
+                        <h3>Nombre Apellido</h3>
+                        <p class="cargo" data-es="Ingeniera de Proyectos" data-en="Project Engineer">Ingeniera de Proyectos</p>
+                        <div class="equipo-detalles">
+                            <p class="especialidad">Mecánica de Suelos</p>
+                            <a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="equipo-card">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante">
+                    <div class="equipo-info">
+                        <h3>Nombre Apellido</h3>
+                        <p class="cargo" data-es="Especialista BIM" data-en="BIM Specialist">Especialista BIM</p>
+                        <div class="equipo-detalles">
+                            <p class="especialidad">Desarrollo Python e IFC</p>
+                            <a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Ingeniero Calculista</p><div class="equipo-detalles"><p class="especialidad">Análisis Sísmico</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Proyectista Estructural</p><div class="equipo-detalles"><p class="especialidad">Tekla Structures</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Ingeniero Geotécnico</p><div class="equipo-detalles"><p class="especialidad">Fundaciones Complejas</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Ingeniera Civil</p><div class="equipo-detalles"><p class="especialidad">Hidrología</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Coordinador de Proyectos</p><div class="equipo-detalles"><p class="especialidad">Gestión y Control</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Proyectista</p><div class="equipo-detalles"><p class="especialidad">Modelación 3D</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Ingeniero Analista</p><div class="equipo-detalles"><p class="especialidad">AASHTO LRFD</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Proyectista BIM</p><div class="equipo-detalles"><p class="especialidad">Rhino + Grasshopper</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Ingeniero de Obras</p><div class="equipo-detalles"><p class="especialidad">Asesoría en Terreno</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Ingeniera Calculista</p><div class="equipo-detalles"><p class="especialidad">Infraestructura Vial</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Especialista Software</p><div class="equipo-detalles"><p class="especialidad">Desarrollo I+D</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Arquitecta BIM</p><div class="equipo-detalles"><p class="especialidad">Coordinación IFC</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Revisor Estructural</p><div class="equipo-detalles"><p class="especialidad">Control de Calidad</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+                <div class="equipo-card"><img src="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integrante"><div class="equipo-info"><h3>Nombre Apellido</h3><p class="cargo">Ingeniera Estructural</p><div class="equipo-detalles"><p class="especialidad">Aislación Sísmica</p><a href="mailto:correo@sincal.cl" class="correo-link">correo@sincal.cl</a></div></div></div>
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // MODO OSCURO
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggleBtn.innerHTML = '☀️ Claro';
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+            themeToggleBtn.innerHTML = body.classList.contains('dark-mode') ? '☀️ Claro' : '🌙 Oscuro';
+        });
+
+        // IDIOMA
+        const langToggleBtn = document.getElementById('lang-toggle');
+        let currentLang = localStorage.getItem('lang') || 'es';
+        function aplicarIdioma(lang) {
+            langToggleBtn.innerHTML = lang === 'en' ? 'EN / ES' : 'ES / EN';
+            document.querySelectorAll('[data-es][data-en]').forEach(el => {
+                if (el.innerHTML.includes('<br>')) {
+                    el.innerHTML = el.getAttribute(`data-${lang}`);
+                } else {
+                    el.textContent = el.getAttribute(`data-${lang}`);
+                }
+            });
+        }
+        aplicarIdioma(currentLang);
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('lang', currentLang);
+            aplicarIdioma(currentLang);
+        });
+    </script>
+</body>
+</html>

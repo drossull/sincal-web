@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINCAL – Acerca de Sincal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Sincal.png">
+</head>
+<body>
+
+    <div class="top-controls">
+        <button class="btn-control" id="lang-toggle">ES / EN</button>
+        <button class="btn-control" id="theme-toggle">🌙 Oscuro</button>
+    </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <nav>
+                <ul>
+                    <li><a href="index.html" data-es="Home" data-en="Home">Home</a></li>
+                    <li><a href="acerca.html" data-es="Acerca de Sincal" data-en="About Sincal">Acerca de Sincal</a></li>
+                    <li><a href="servicios.html" data-es="Servicios" data-en="Services">Servicios</a></li>
+                    <li class="dropdown">
+                        <a href="index.html#todos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+                        <ul class="submenu">
+                            <li><a href="index.html#finalizados" data-es="- Finalizados" data-en="- Completed">- Finalizados</a></li>
+                            <li><a href="index.html#desarrollo" data-es="- En Desarrollo" data-en="- In Progress">- En Desarrollo</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="equipo.html" data-es="Equipo" data-en="Team">Equipo</a></li>
+                    <li><a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="sidebar-bottom">
+            <p data-es="San Pio X 2460, of 1801<br>Santiago, Chile" data-en="2460 San Pio X, Suite 1801<br>Santiago, Chile">San Pio X 2460, of 1801<br>Santiago, Chile</p>
+            <p class="copyright">&copy; 2026 SINCAL</p>
+        </div>
+    </aside>
+
+    <main class="contenido-principal">
+        <div class="logo-container" id="acerca">
+            <a href="index.html">
+                <img src="Sincal.png" alt="Logo SINCAL" class="logo-main">
+            </a>
+        </div>
+
+        <section class="seccion-texto">
+            <div class="encabezado-seccion">
+                <h1 data-es="Acerca de Sincal" data-en="About Sincal">Acerca de Sincal</h1>
+                <p data-es="Ingeniería estructural con mentalidad de software desde 2018." data-en="Structural engineering with a software mindset since 2018.">Ingeniería estructural con mentalidad de software desde 2018.</p>
+            </div>
+
+            <div class="acerca-contenido">
+                <p data-es="Somos una consultora chilena fundada en marzo de 2018 en Santiago, especializada en ingeniería estructural de puentes e infraestructura. Combinamos el rigor del cálculo estructural con una metodología propia de parametrización total (BrIM) que integra el modelo estructural, el modelo 3D y los planos en un solo flujo." data-en="We are a Chilean consulting firm founded in March 2018 in Santiago, specializing in structural engineering for bridges and infrastructure. We combine structural calculation rigor with our own total parameterization methodology (BrIM), integrating structural and 3D models with plans in a single workflow.">Somos una consultora chilena fundada en marzo de 2018 en Santiago, especializada en ingeniería estructural de puentes e infraestructura. Combinamos el rigor del cálculo estructural con una metodología propia de parametrización total (BrIM) que integra el modelo estructural, el modelo 3D y los planos en un solo flujo.</p>
+
+                <p data-es="Nuestro equipo de 17 profesionales calculistas y proyectistas desarrolla proyectos en todo Chile y a nivel internacional, integrando herramientas desarrolladas in-house (como bridge-fem y bridge-ifc) para mandantes como MOP, EFE, concesionarias y constructoras." data-en="Our team of 17 calculation and drafting professionals develops projects throughout Chile and internationally, integrating in-house tools (like bridge-fem and bridge-ifc) for clients such as MOP, EFE, concessionaires, and construction companies.">Nuestro equipo de 17 profesionales calculistas y proyectistas desarrolla proyectos en todo Chile y a nivel internacional, integrando herramientas desarrolladas in-house (como bridge-fem y bridge-ifc) para mandantes como MOP, EFE, concesionarias y constructoras.</p>
+            </div>
+
+            <div class="grid-pilares">
+                <div class="pilar-card">
+                    <h3 data-es="Creatividad" data-en="Creativity">Creatividad</h3>
+                    <p data-es="Soluciones técnicas a medida, desde el estudio de alternativas hasta el diseño de detalle." data-en="Tailored technical solutions, from alternative studies to detailed design.">Soluciones técnicas a medida, desde el estudio de alternativas hasta el diseño de detalle.</p>
+                </div>
+                <div class="pilar-card">
+                    <h3 data-es="Calidad" data-en="Quality">Calidad</h3>
+                    <p data-es="Rigor en el cálculo, trazabilidad en la documentación y verificación cruzada en cada entregable." data-en="Rigor in calculation, documentation traceability, and cross-verification in every deliverable.">Rigor en el cálculo, trazabilidad en la documentación y verificación cruzada en cada entregable.</p>
+                </div>
+                <div class="pilar-card">
+                    <h3 data-es="Innovación" data-en="Innovation">Innovación</h3>
+                    <p data-es="Metodología BrIM, parametrización total y desarrollo de software propio para control absoluto del proceso." data-en="BrIM methodology, total parameterization, and proprietary software development for absolute process control.">Metodología BrIM, parametrización total y desarrollo de software propio para control absoluto del proceso.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggleBtn.innerHTML = '☀️ Claro';
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+            themeToggleBtn.innerHTML = body.classList.contains('dark-mode') ? '☀️ Claro' : '🌙 Oscuro';
+        });
+
+        const langToggleBtn = document.getElementById('lang-toggle');
+        let currentLang = localStorage.getItem('lang') || 'es';
+        function aplicarIdioma(lang) {
+            langToggleBtn.innerHTML = lang === 'en' ? 'EN / ES' : 'ES / EN';
+            document.querySelectorAll('[data-es][data-en]').forEach(el => {
+                if (el.innerHTML.includes('<br>')) {
+                    el.innerHTML = el.getAttribute(`data-${lang}`);
+                } else {
+                    el.textContent = el.getAttribute(`data-${lang}`);
+                }
+            });
+        }
+        aplicarIdioma(currentLang);
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('lang', currentLang);
+            aplicarIdioma(currentLang);
+        });
+    </script>
+</body>
+</html>
