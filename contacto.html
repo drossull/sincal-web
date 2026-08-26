@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINCAL – Contacto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Sincal.png">
+</head>
+<body>
+
+    <div class="top-controls">
+        <button class="btn-control" id="lang-toggle">ES / EN</button>
+        <button class="btn-control" id="theme-toggle">🌙 Oscuro</button>
+    </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <button class="hamburger-btn" id="btn-hamburger">☰ MENÚ</button>
+            <nav>
+                <ul id="menu-principal">
+                    <li><a href="index.html" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+                    <li><a href="acerca.html" data-es="Acerca de Sincal" data-en="About Sincal">Acerca de Sincal</a></li>
+                    <li><a href="servicios.html" data-es="Servicios" data-en="Services">Servicios</a></li>
+                    <li><a href="equipo.html" data-es="Equipo" data-en="Team">Equipo</a></li>
+                    <li><a href="contacto.html" class="activo" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="sidebar-bottom">
+            <p data-es="San Pio X 2460, of 1801<br>Santiago, Chile" data-en="2460 San Pio X, Suite 1801<br>Santiago, Chile">San Pio X 2460, of 1801<br>Santiago, Chile</p>
+            <p class="copyright">&copy; 2026 SINCAL</p>
+        </div>
+    </aside>
+
+    <main class="contenido-principal">
+        <div class="logo-container" id="contacto">
+            <a href="index.html">
+                <img src="Sincal.png" alt="Logo SINCAL" class="logo-main">
+            </a>
+        </div>
+
+        <section class="seccion-texto">
+            <div class="contacto-bloque">
+                <h1 class="contacto-titulo">
+                    <span data-es="Conversemos" data-en="Let's talk">Conversemos</span><br>
+                    <span data-es="sobre tu próximo" data-en="about your next">sobre tu próximo</span><br>
+                    <span class="texto-acento" data-es="proyecto." data-en="project.">proyecto.</span>
+                </h1>
+
+                <div class="contacto-grid">
+                    <div class="contacto-item">
+                        <div class="contacto-label" data-es="EMAIL · GERENCIA" data-en="EMAIL · MANAGEMENT">EMAIL · GERENCIA</div>
+                        <div class="contacto-valor">
+                            <a href="mailto:gsolar@sincal.cl">gsolar@sincal.cl</a>
+                        </div>
+                    </div>
+
+                    <div class="contacto-item">
+                        <div class="contacto-label" data-es="WEB" data-en="WEB">WEB</div>
+                        <div class="contacto-valor">
+                            <a href="https://www.sincal.cl" target="_blank" rel="noopener noreferrer">www.sincal.cl</a>
+                        </div>
+                    </div>
+
+                    <div class="contacto-item">
+                        <div class="contacto-label" data-es="TELÉFONO" data-en="PHONE">TELÉFONO</div>
+                        <div class="contacto-valor">
+                            <a href="tel:+56999981006">+56 9 9998 1006</a>
+                        </div>
+                    </div>
+
+                    <div class="contacto-item">
+                        <div class="contacto-label" data-es="DIRECCIÓN" data-en="ADDRESS">DIRECCIÓN</div>
+                        <div class="contacto-valor" data-es="Santiago, Chile" data-en="Santiago, Chile">
+                            Santiago, Chile
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggleBtn.innerHTML = '☀️ Claro';
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+            themeToggleBtn.innerHTML = body.classList.contains('dark-mode') ? '☀️ Claro' : '🌙 Oscuro';
+        });
+
+        // IDIOMA CON MEMORIA
+        const langToggleBtn = document.getElementById('lang-toggle');
+        let currentLang = localStorage.getItem('lang') || 'es';
+
+        function aplicarIdioma(lang) {
+            langToggleBtn.innerHTML = lang === 'en' ? 'EN / ES' : 'ES / EN';
+            document.querySelectorAll('[data-es][data-en]').forEach(el => {
+                el.innerHTML = el.getAttribute(`data-${lang}`);
+            });
+        }
+
+        aplicarIdioma(currentLang);
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('lang', currentLang);
+            aplicarIdioma(currentLang);
+        });
+
+        // --- MENÚ HAMBURGUESA ---
+        const btnHamburger = document.getElementById('btn-hamburger');
+        const menuPrincipal = document.getElementById('menu-principal');
+
+        if(btnHamburger) {
+            btnHamburger.addEventListener('click', () => {
+                menuPrincipal.classList.toggle('abierto');
+                if(menuPrincipal.classList.contains('abierto')) {
+                    btnHamburger.innerHTML = '✕ CERRAR';
+                } else {
+                    btnHamburger.innerHTML = '☰ MENÚ';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

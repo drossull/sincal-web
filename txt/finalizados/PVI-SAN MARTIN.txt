@@ -1,0 +1,13 @@
+Extensión de EFE Valparaíso a Quillota y La Calera. 2026.
+
+1. NOMBRE: Paso Vehicular Inferior San Martín
+2. UBICACIÓN: Calle Lorca Prieto, Quillota, Región de Valparaíso.
+3. DESCRIPCIÓN: El proyecto consiste en un paso vehicular inferior mediante trinchera que cruza bajo tres vías ferroviarias bidireccionales. La estructura alberga una calzada vehicular bidireccional y un pasillo peatonal elevado. El sistema de contención emplea principalmente muros pantalla, optando por muros en voladizo (cantiléver) con zapata para las excavaciones de menor altura. La obra presenta las siguientes características estructurales:
+
+Trinchera cerrada: Está conformada por paneles de muro pantalla de 14 x 6 x 1 metros. Sobre estos se apoya de forma simple una losa postensada aligerada de 17,05 m de largo, 18,50 m de ancho y 1 m de espesor.
+
+Trinchera abierta: Los muros pantalla que alcanzan los 14 m de altura se estabilizan mediante estampidores superiores, mientras que los de menor altura trabajan en voladizo.
+
+Losa de fundación: Conecta inferiormente todos los muros de la trinchera, proporcionando soporte a la calzada vehicular e impidiendo el ingreso de agua.
+
+Pasillo peatonal: Acompaña el trazado vehicular a desnivel. Estructuralmente, se conforma por muros unidos de forma monolítica a la losa de fundación inferior.

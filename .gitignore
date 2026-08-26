@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.log
+.vscode/
+build/
+tmp/
+RESPALDO WEB ANTERIOR/
+plot.log
+registro_freecad.log
+
+# Borrador local: no publicar Puente El Azul (G-45) aún.
+img/finalizados/PUENTE-EL-AZUL.*
+img/finalizados/dxf/PUENTE-EL-AZUL.dxf
+txt/finalizados/PUENTE-EL-AZUL.txt

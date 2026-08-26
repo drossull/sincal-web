@@ -1,0 +1,8 @@
+Puente Polpaico. Julio 2024.
+
+1. NOMBRE: Puente Polpaico
+2. UBICACIÓN: Ruta G-132, Comuna de Til-Til. Región Metroplitana.
+3. LONGITUD TOTAL: 245,046 m apoyado en 7 tramos.
+4. ANCHO TOTAL TABLERO: 16,06 m, medida recta.
+5. SUPERESTRUCTURA: Se tiene una losa de hormigón armado de 22 cm de espesor, la cual se apoya en cinco vigas de hormigón pretensadas. Se tienen  dos barreras tipo F alta sin pasamanos, delimitando la calzada de 7,0 m y dos bermas de 1,5 m. Tiene, a su vez, dos pasillos peatonales cerrados con valla antivandálica. Se han considerado, para cada tramo, dos travesaños extremos, un travesaño intermedio, placas de apoyo de neopreno dureza 60 Shore A y juntas elastoméricas.
+6. INFRAESTRUCTURA: Considera dos estribos del tipo muro frontal-espaldar con muros en ala a 65,3° (estribo de entrada) y 70° (estribo de salida), que contienen los terraplenes de acceso. De acuerdo con la recomendación del informe de mecánica de suelos, los estribos son de fundación de tipo directa. Además, la infraestructura está conformada por seis cepas: cepas C1 a C4 basadas en un cabezal, pilares, dado de hormigón y fundaciones de tipo profunda; cepas C5 y C6 basadas en un cabezal, pilares y fundación de tipo directa. 

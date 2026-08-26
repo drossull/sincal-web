@@ -6,6 +6,63 @@
     <title>SINCAL – Acerca de Sincal</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="Sincal.png">
+
+    <style>
+        /* --- ESTILOS NORMAS Y SOFTWARE --- */
+        .contenedor-normas {
+            max-width: 1000px; 
+            margin-bottom: 80px;
+        }
+        .normas-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 60px; 
+            background-color: var(--color-superficie);
+            padding: 40px;
+            border: 1px solid var(--color-borde);
+            border-radius: 2px;
+        }
+        .titulo-norma {
+            color: var(--color-principal);
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--color-principal);
+            padding-bottom: 10px;
+        }
+        .lista-normas {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0; 
+        }
+        .lista-normas li {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px dashed var(--color-borde);
+            font-size: 14px;
+        }
+        .lista-normas li:last-child {
+            border-bottom: none;
+        }
+        .norma-codigo {
+            color: var(--color-texto);
+            font-weight: bold;
+        }
+        .norma-desc {
+            color: var(--color-texto);
+            opacity: 0.8;
+            text-align: right;
+            max-width: 65%;
+        }
+
+        /* Responsividad para móviles */
+        @media (max-width: 900px) {
+            .normas-box {
+                grid-template-columns: 1fr; 
+                gap: 40px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -16,18 +73,12 @@
 
     <aside class="sidebar">
         <div class="sidebar-top">
+            <button class="hamburger-btn" id="btn-hamburger">☰ MENÚ</button>
             <nav>
-                <ul>
-                    <li><a href="index.html" data-es="Home" data-en="Home">Home</a></li>
-                    <li><a href="acerca.html" data-es="Acerca de Sincal" data-en="About Sincal">Acerca de Sincal</a></li>
+                <ul id="menu-principal">
+                    <li><a href="index.html" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+                    <li><a href="acerca.html" class="activo" data-es="Acerca de Sincal" data-en="About Sincal">Acerca de Sincal</a></li>
                     <li><a href="servicios.html" data-es="Servicios" data-en="Services">Servicios</a></li>
-                    <li class="dropdown">
-                        <a href="index.html#todos" data-es="Proyectos" data-en="Projects">Proyectos</a>
-                        <ul class="submenu">
-                            <li><a href="index.html#finalizados" data-es="- Finalizados" data-en="- Completed">- Finalizados</a></li>
-                            <li><a href="index.html#desarrollo" data-es="- En Desarrollo" data-en="- In Progress">- En Desarrollo</a></li>
-                        </ul>
-                    </li>
                     <li><a href="equipo.html" data-es="Equipo" data-en="Team">Equipo</a></li>
                     <li><a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a></li>
                 </ul>
@@ -49,8 +100,8 @@
 
         <section class="seccion-texto">
             <div class="encabezado-seccion">
-                <h1 data-es="Acerca de Sincal" data-en="About Sincal">Acerca de Sincal</h1>
-                <p data-es="Ingeniería estructural con mentalidad de software desde 2018." data-en="Structural engineering with a software mindset since 2018.">Ingeniería estructural con mentalidad de software desde 2018.</p>
+                <h1 data-es="Sincal Ltda.<br>Ingeniería estructural con mentalidad de software." data-en="Sincal Ltda.<br>Structural engineering with a software mindset.">Sincal Ltda.<br>Ingeniería estructural con mentalidad de software.</h1>
+                <p data-es="Desde 2018." data-en="Since 2018.">Desde 2018.</p>
             </div>
 
             <div class="acerca-contenido">
@@ -59,20 +110,110 @@
                 <p data-es="Nuestro equipo de 17 profesionales calculistas y proyectistas desarrolla proyectos en todo Chile y a nivel internacional, integrando herramientas desarrolladas in-house (como bridge-fem y bridge-ifc) para mandantes como MOP, EFE, concesionarias y constructoras." data-en="Our team of 17 calculation and drafting professionals develops projects throughout Chile and internationally, integrating in-house tools (like bridge-fem and bridge-ifc) for clients such as MOP, EFE, concessionaires, and construction companies.">Nuestro equipo de 17 profesionales calculistas y proyectistas desarrolla proyectos en todo Chile y a nivel internacional, integrando herramientas desarrolladas in-house (como bridge-fem y bridge-ifc) para mandantes como MOP, EFE, concesionarias y constructoras.</p>
             </div>
 
+            <div class="ficha-tecnica">
+                <div class="ficha-item">
+                    <div class="ficha-label" data-es="RAZÓN SOCIAL" data-en="COMPANY NAME">RAZÓN SOCIAL</div>
+                    <div class="ficha-valor">Sincal Ltda.</div>
+                </div>
+                <div class="ficha-item">
+                    <div class="ficha-label" data-es="FUNDACIÓN" data-en="FOUNDED">FUNDACIÓN</div>
+                    <div class="ficha-valor" data-es="Marzo 2018 · Santiago, Chile" data-en="March 2018 · Santiago, Chile">Marzo 2018 · Santiago, Chile</div>
+                </div>
+                <div class="ficha-item">
+                    <div class="ficha-label" data-es="ESPECIALIDAD" data-en="SPECIALTY">ESPECIALIDAD</div>
+                    <div class="ficha-valor" data-es="Ingeniería de puentes e infraestructura" data-en="Bridge and infrastructure engineering">Ingeniería de puentes e infraestructura</div>
+                </div>
+                <div class="ficha-item">
+                    <div class="ficha-label" data-es="EQUIPO" data-en="TEAM">EQUIPO</div>
+                    <div class="ficha-valor" data-es="17 profesionales · calculistas y proyectistas" data-en="17 professionals · structural engineers and drafters">17 profesionales · calculistas y proyectistas</div>
+                </div>
+                <div class="ficha-item">
+                    <div class="ficha-label" data-es="METODOLOGÍA" data-en="METHODOLOGY">METODOLOGÍA</div>
+                    <div class="ficha-valor">BrIM — Bridge Information Modeling</div>
+                </div>
+                <div class="ficha-item">
+                    <div class="ficha-label" data-es="COBERTURA" data-en="COVERAGE">COBERTURA</div>
+                    <div class="ficha-valor" data-es="Chile completo · proyectos internacionales" data-en="Throughout Chile · international projects">Chile completo · proyectos internacionales</div>
+                </div>
+                <div class="ficha-item">
+                    <div class="ficha-label" data-es="MANDANTES" data-en="CLIENTS">MANDANTES</div>
+                    <div class="ficha-valor" data-es="MOP · EFE · concesionarias · constructoras" data-en="MOP · EFE · concessionaires · construction companies">MOP · EFE · concesionarias · constructoras</div>
+                </div>
+            </div>
+
             <div class="grid-pilares">
                 <div class="pilar-card">
+                    <div class="servicio-letra">01</div>
                     <h3 data-es="Creatividad" data-en="Creativity">Creatividad</h3>
                     <p data-es="Soluciones técnicas a medida, desde el estudio de alternativas hasta el diseño de detalle." data-en="Tailored technical solutions, from alternative studies to detailed design.">Soluciones técnicas a medida, desde el estudio de alternativas hasta el diseño de detalle.</p>
                 </div>
                 <div class="pilar-card">
+                    <div class="servicio-letra">02</div>
                     <h3 data-es="Calidad" data-en="Quality">Calidad</h3>
                     <p data-es="Rigor en el cálculo, trazabilidad en la documentación y verificación cruzada en cada entregable." data-en="Rigor in calculation, documentation traceability, and cross-verification in every deliverable.">Rigor en el cálculo, trazabilidad en la documentación y verificación cruzada en cada entregable.</p>
                 </div>
                 <div class="pilar-card">
+                    <div class="servicio-letra">03</div>
                     <h3 data-es="Innovación" data-en="Innovation">Innovación</h3>
                     <p data-es="Metodología BrIM, parametrización total y desarrollo de software propio para control absoluto del proceso." data-en="BrIM methodology, total parameterization, and proprietary software development for absolute process control.">Metodología BrIM, parametrización total y desarrollo de software propio para control absoluto del proceso.</p>
                 </div>
             </div>
+
+            <div style="margin-top: 80px; border-top: 1px solid var(--color-borde); padding-top: 60px;">
+                <h2 style="font-size: 36px; color: var(--color-principal); font-weight: bold; margin-bottom: 20px;" data-es="Alcance nacional." data-en="National scope.">Alcance nacional.</h2>
+                <p style="font-size: 16px; color: var(--color-texto); line-height: 1.6; margin-bottom: 50px; max-width: 850px;" data-es="Hemos desarrollado proyectos de Arica a Magallanes, con presencia en Chiloé (Ruta W-800 Cucao) y la Patagonia chilena (Puentes Mayer, Aysén · Ruta Y-290, Torres del Paine). Trabajamos con la normativa chilena y los códigos internacionales que rigen la ingeniería de puentes." data-en="We have developed projects from Arica to Magallanes, with presence in Chiloé (Route W-800 Cucao) and the Chilean Patagonia (Mayer Bridges, Aysén · Route Y-290, Torres del Paine). We work with Chilean regulations and international codes governing bridge engineering.">
+                    Hemos desarrollado proyectos de Arica a Magallanes, con presencia en Chiloé (Ruta W-800 Cucao) y la Patagonia chilena (Puentes Mayer, Aysén · Ruta Y-290, Torres del Paine). Trabajamos con la normativa chilena y los códigos internacionales que rigen la ingeniería de puentes.
+                </p>
+
+                <div class="contenedor-normas">
+                    <div class="normas-box">
+                        <div class="columna-norma">
+                            <h3 class="titulo-norma" data-es="Chile" data-en="Chile">Chile</h3>
+                            <ul class="lista-normas">
+                                <li><span class="norma-codigo">MC MOP</span> <span class="norma-desc" data-es="Manual de Carreteras" data-en="Highway Manual">Manual de Carreteras</span></li>
+                                <li><span class="norma-codigo">NCh 433</span> <span class="norma-desc" data-es="Diseño sísmico de edificios" data-en="Seismic design of buildings">Diseño sísmico de edificios</span></li>
+                                <li><span class="norma-codigo">NCh 2369</span> <span class="norma-desc" data-es="Estructuras industriales · ed. 2025" data-en="Industrial structures · 2025 ed.">Estructuras industriales · ed. 2025</span></li>
+                                <li><span class="norma-codigo">NCh 2745</span> <span class="norma-desc" data-es="Aislación sísmica" data-en="Seismic isolation">Aislación sísmica</span></li>
+                                <li><span class="norma-codigo">NCh 1537</span> <span class="norma-desc" data-es="Cargas permanentes y sobrecargas" data-en="Dead and live loads">Cargas permanentes y sobrecargas</span></li>
+                                <li><span class="norma-codigo">NCh 430</span> <span class="norma-desc" data-es="Hormigón armado" data-en="Reinforced concrete">Hormigón armado</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="columna-norma">
+                            <h3 class="titulo-norma" data-es="Internacional" data-en="International">Internacional</h3>
+                            <ul class="lista-normas">
+                                <li><span class="norma-codigo">AASHTO LRFD y STD</span> <span class="norma-desc" data-es="Bridge Design Specs" data-en="Bridge Design Specs">Bridge Design Specs</span></li>
+                                <li><span class="norma-codigo">AASHTO GS</span> <span class="norma-desc" data-es="Guide Spec for Tsunami Loads (2022)" data-en="Guide Spec for Tsunami Loads (2022)">Guide Spec for Tsunami Loads (2022)</span></li>
+                                <li><span class="norma-codigo">AASHTO SGS</span> <span class="norma-desc" data-es="Seismic Isolation Design" data-en="Seismic Isolation Design">Seismic Isolation Design</span></li>
+                                <li><span class="norma-codigo">ACI 318</span> <span class="norma-desc" data-es="Hormigón estructural" data-en="Structural concrete">Hormigón estructural</span></li>
+                                <li><span class="norma-codigo">AISC 360</span> <span class="norma-desc" data-es="Acero estructural" data-en="Structural steel">Acero estructural</span></li>
+                                <li><span class="norma-codigo">IFC 4.3</span> <span class="norma-desc" data-es="buildingSMART · bridges" data-en="buildingSMART · bridges">buildingSMART · bridges</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-pilares">
+                    <div class="pilar-card">
+                        <div class="servicio-letra">04</div>
+                        <h3 data-es="Software principal" data-en="Main software">Software principal</h3>
+                        <p data-es="Tekla Structures · RFEM 6 · SOFiSTiK · SAP2000 · Rhino/Grasshopper · ZWCAD." data-en="Tekla Structures · RFEM 6 · SOFiSTiK · SAP2000 · Rhino/Grasshopper · ZWCAD.">Tekla Structures · RFEM 6 · SOFiSTiK · SAP2000 · Rhino/Grasshopper · ZWCAD.</p>
+                    </div>
+
+                    <div class="pilar-card">
+                        <div class="servicio-letra">05</div>
+                        <h3 data-es="Software propio" data-en="Proprietary software">Software propio</h3>
+                        <p data-es="bridge-fem · bridge-ifc · FreeCAD + IFC4x3 · TechDraw automation." data-en="bridge-fem · bridge-ifc · FreeCAD + IFC4x3 · TechDraw automation.">bridge-fem · bridge-ifc · FreeCAD + IFC4x3 · TechDraw automation.</p>
+                    </div>
+
+                    <div class="pilar-card">
+                        <div class="servicio-letra">06</div>
+                        <h3 data-es="Entregables" data-en="Deliverables">Entregables</h3>
+                        <p data-es="Memorias de cálculo · modelos FEM · modelos Tekla · planos · modelos IFC · QTO." data-en="Calculation reports · FEM models · Tekla models · plans · IFC models · QTO.">Memorias de cálculo · modelos FEM · modelos Tekla · planos · modelos IFC · QTO.</p>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
 
@@ -89,24 +230,39 @@
             themeToggleBtn.innerHTML = body.classList.contains('dark-mode') ? '☀️ Claro' : '🌙 Oscuro';
         });
 
+        // IDIOMA CON MEMORIA
         const langToggleBtn = document.getElementById('lang-toggle');
         let currentLang = localStorage.getItem('lang') || 'es';
+
         function aplicarIdioma(lang) {
             langToggleBtn.innerHTML = lang === 'en' ? 'EN / ES' : 'ES / EN';
             document.querySelectorAll('[data-es][data-en]').forEach(el => {
-                if (el.innerHTML.includes('<br>')) {
-                    el.innerHTML = el.getAttribute(`data-${lang}`);
-                } else {
-                    el.textContent = el.getAttribute(`data-${lang}`);
-                }
+                el.innerHTML = el.getAttribute(`data-${lang}`);
             });
         }
+
         aplicarIdioma(currentLang);
+
         langToggleBtn.addEventListener('click', () => {
             currentLang = currentLang === 'es' ? 'en' : 'es';
             localStorage.setItem('lang', currentLang);
             aplicarIdioma(currentLang);
         });
+
+        // --- MENÚ HAMBURGUESA ---
+        const btnHamburger = document.getElementById('btn-hamburger');
+        const menuPrincipal = document.getElementById('menu-principal');
+
+        if(btnHamburger) {
+            btnHamburger.addEventListener('click', () => {
+                menuPrincipal.classList.toggle('abierto');
+                if(menuPrincipal.classList.contains('abierto')) {
+                    btnHamburger.innerHTML = '✕ CERRAR';
+                } else {
+                    btnHamburger.innerHTML = '☰ MENÚ';
+                }
+            });
+        }
     </script>
 </body>
 </html>

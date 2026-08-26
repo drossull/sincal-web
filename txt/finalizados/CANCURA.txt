@@ -1,0 +1,8 @@
+Reposición de Puente Cancura. Diciembre 2018.
+
+1. NOMBRE: Puente Cancura
+2. UBICACIÓN: Ruta U-55-V, Comunas de Puerto Octay y Osorno, Red Básica Nacional. Región de Los Lagos.
+3. LONGITUD TOTAL: 115,45 m
+4. ANCHO TOTAL TABLERO: 14,06 m
+5. SUPERESTRUCTURA: Se tiene una losa de hormigón armado de 21 cm de espesor, la cual se apoya en cinco vigas de acero. Se tienen además dos barreras tipo F alta sin pasamanos y dos barandas metálicas peatonales, incluyendo dos miradores de 1 m de ancho. Se han considerado, para cada tramo, dos travesaños extremos, placas de apoyo de neopreno dureza 60 Shore A y juntas elastoméricas.
+6. INFRAESTRUCTURA: Considera dos estribos del tipo muro frontal-espaldar con muros en ala a 66,31°, que contienen los terraplenes de acceso. De acuerdo con la recomendación del informe de mecánica de suelos, los estribos son de fundación de tipo profunda en la entrada y la salida.

@@ -6,6 +6,276 @@
     <title>SINCAL – Ingeniería</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="Sincal.png">
+
+    <style>
+        /* Botón Brochure */
+        .btn-descarga {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--color-acento);
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-descarga:hover {
+            background-color: var(--color-principal);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        /* 1. Tarjetas de Proyectos */
+        .proyecto-card img {
+            background-color: #f4f6f8; 
+            cursor: zoom-in; 
+            transition: opacity 0.3s ease;
+            padding: 30px; 
+            box-sizing: border-box; 
+            object-fit: contain; 
+        }
+        .proyecto-card img:hover {
+            opacity: 0.85;
+        }
+
+        /* 2. Estilos del Modal (Lightbox) */
+        .modal-visor {
+            display: none; 
+            position: fixed; 
+            z-index: 9999; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.85); 
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-contenido-svg {
+            width: 90%;
+            max-width: 1400px;
+            height: 85vh;
+            background-color: #f4f6f8; 
+            border-radius: 4px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; 
+            position: relative; 
+        }
+        
+        @keyframes fadeElegante {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Contenedor SVG */
+        #contenedor-svg-inyeccion {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #contenedor-svg-inyeccion svg, 
+        #contenedor-svg-inyeccion img {
+            width: 100%;
+            height: 100%;
+            opacity: 0; 
+            animation: fadeElegante 0.8s ease-in-out forwards;
+            cursor: grab; 
+        }
+
+        /* --- 3. PANEL DE ESPECIFICACIONES TÉCNICAS --- */
+        .specs-panel {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 35%; 
+            background: linear-gradient(to right, #f4f6f8 0%, #f4f6f8 70%, rgba(244, 246, 248, 0) 100%);
+            z-index: 10;
+            padding: 50px 40px;
+            box-sizing: border-box;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            pointer-events: none; 
+        }
+
+        .specs-content {
+            pointer-events: auto; 
+            max-width: 85%; 
+            color: #1C2843;
+            font-family: var(--font-sans);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .specs-content h3 {
+            margin: 0 0 20px 0;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--color-acento);
+            padding-bottom: 8px;
+            flex-shrink: 0; 
+        }
+
+        /* Zona de desplazamiento invisible */
+        .specs-scroll-area {
+            flex-grow: 1; 
+            overflow-y: auto; 
+            padding-right: 15px; 
+            scrollbar-width: none; 
+            -ms-overflow-style: none; 
+        }
+
+        .specs-scroll-area::-webkit-scrollbar {
+            display: none;
+        }
+
+        .specs-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .specs-list li {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border-bottom: 1px dashed rgba(28, 40, 67, 0.1);
+            padding-bottom: 6px;
+        }
+
+        .specs-list strong {
+            color: var(--color-acento);
+        }
+
+        /* INSTRUCCIÓN DE ZOOM */
+        .instruccion-zoom {
+            position: absolute;
+            bottom: 30px;
+            left: calc(35% + 32.5%); 
+            transform: translateX(-50%);
+            font-family: var(--font-sans);
+            font-size: 12px;
+            text-align: center; 
+            color: var(--color-principal); 
+            opacity: 0.75; 
+            pointer-events: none; 
+            z-index: 15;
+            display: none; 
+        }
+
+        /* --- NUEVO: FLECHAS DE GALERÍA --- */
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            color: #f1f1f1;
+            border: none;
+            font-size: 60px;
+            cursor: pointer;
+            z-index: 10000;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 20px;
+        }
+        .nav-arrow:hover {
+            color: var(--color-acento);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .prev-arrow { left: 2%; }
+        .next-arrow { right: 2%; }
+
+        /* UI Textos */
+        .cargando-texto {
+            font-family: var(--font-sans);
+            color: #1C2843;
+            font-weight: 600;
+            font-size: 1.2rem;
+            animation: pulse 1s infinite alternate;
+        }
+        @keyframes pulse {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+
+        .cerrar-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            padding: 0;
+            line-height: 1;
+            transition: 0.3s;
+            z-index: 10000;
+        }
+        .cerrar-modal:hover {
+            color: var(--color-acento);
+        }
+
+        @media (max-width: 650px) {
+            .modal-contenido-svg {
+                width: 100%;
+                height: 100dvh;
+                padding: 16px;
+                border-radius: 0;
+            }
+
+            #contenedor-svg-inyeccion {
+                align-items: flex-start;
+                padding-top: 40px;
+            }
+
+            #contenedor-svg-inyeccion svg,
+            #contenedor-svg-inyeccion img {
+                height: 55%;
+            }
+
+            .specs-panel {
+                height: 42%;
+                padding: 18px 16px;
+            }
+
+            .specs-content h3 {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+
+            .nav-arrow {
+                top: 36%;
+                font-size: 34px;
+                padding: 8px;
+            }
+
+            .cerrar-modal {
+                top: 12px;
+                right: 18px;
+                font-size: 34px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -16,18 +286,14 @@
 
     <aside class="sidebar">
         <div class="sidebar-top">
+            <!-- NUEVO BOTÓN HAMBURGUESA -->
+            <button class="hamburger-btn" id="btn-hamburger">☰ MENÚ</button>
+            
             <nav>
-                <ul>
-                    <li><a href="index.html" data-es="Home" data-en="Home">Home</a></li>
+                <ul id="menu-principal">
+                    <li><a href="index.html" class="activo" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
                     <li><a href="acerca.html" data-es="Acerca de Sincal" data-en="About Sincal">Acerca de Sincal</a></li>
                     <li><a href="servicios.html" data-es="Servicios" data-en="Services">Servicios</a></li>
-                    <li class="dropdown">
-                        <a href="#todos" data-es="Proyectos" data-en="Projects">Proyectos</a>
-                        <ul class="submenu">
-                            <li><a href="#finalizados" data-es="- Finalizados" data-en="- Completed">- Finalizados</a></li>
-                            <li><a href="#desarrollo" data-es="- En Desarrollo" data-en="- In Progress">- En Desarrollo</a></li>
-                        </ul>
-                    </li>
                     <li><a href="equipo.html" data-es="Equipo" data-en="Team">Equipo</a></li>
                     <li><a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a></li>
                 </ul>
@@ -41,99 +307,303 @@
     </aside>
 
     <main class="contenido-principal">
-        
-        <div class="logo-container" id="home">
+        <div class="logo-container" id="proyectos">
             <a href="index.html">
                 <img src="Sincal.png" alt="Logo SINCAL" class="logo-main">
             </a>
         </div>
 
-        <section id="proyectos">
-            <div class="grid-proyectos" id="contenedor-proyectos">
-                </div>
+        <section class="home-intro">
+            <h2 data-es="Ingeniería estructural con metodología BrIM" data-en="Structural engineering with BrIM methodology">Ingeniería estructural con metodología BrIM</h2>
+            <p class="bajada" data-es="Puentes, concesiones y obras de infraestructura desarrolladas con parametrización total" data-en="Bridges, concessions, and infrastructure works developed with total parameterization">Puentes, concesiones y obras de infraestructura desarrolladas con parametrización total</p>
+            <p data-es="Nacimos con foco en proyectos de ingeniería estructural y, a petición de nuestros clientes, hemos extendido nuestros servicios a peritajes, asesorías en obra, estudios hidráulicos, mecánica de suelos y estudios de amenaza sísmica. Trabajamos bajo normativa chilena (Manual de Carreteras MOP, NCH) e internacional (AASHTO LRFD), con mandantes públicos y privados." data-en="We were born with a focus on structural engineering projects and, at the request of our clients, we have extended our services to expert reports, on-site consulting, hydraulic studies, soil mechanics, and seismic hazard studies. We work under Chilean (MOP Highway Manual, NCH) and international (AASHTO LRFD) regulations, with public and private clients.">Nacimos con foco en proyectos de ingeniería estructural y, a petición de nuestros clientes, hemos extendido nuestros servicios a peritajes, asesorías en obra, estudios hidráulicos, mecánica de suelos y estudios de amenaza sísmica. Trabajamos bajo normativa chilena (Manual de Carreteras MOP, NCH) e internacional (AASHTO LRFD), con mandantes públicos y privados.</p>
+            <div style="margin-top: 35px; margin-bottom: 20px;">
+                <a href="brochure.pdf" target="_blank" rel="noopener noreferrer" class="btn-descarga"><span data-es="↓ Descargar Brochure Corporativo" data-en="↓ Download Corporate Brochure">↓ Descargar Brochure Corporativo</span></a>
+            </div>
         </section>
+
+        <section><div class="grid-proyectos" id="contenedor-proyectos"></div></section>
     </main>
+
+    <div id="visor-proyectos" class="modal-visor" role="dialog" aria-modal="true" aria-label="Visor de proyectos">
+        <button class="cerrar-modal" id="btn-cerrar-modal" type="button" aria-label="Cerrar visor">&times;</button>
+        
+        <button class="nav-arrow prev-arrow" id="btn-prev" type="button" aria-label="Proyecto anterior">&#10094;</button>
+        <button class="nav-arrow next-arrow" id="btn-next" type="button" aria-label="Proyecto siguiente">&#10095;</button>
+
+        <div class="modal-contenido-svg">
+            <div id="contenedor-svg-inyeccion"></div>
+            
+            <div class="specs-panel" id="specs-panel">
+                <div class="specs-content" id="specs-content-area">
+                    <h3 data-es="ESPECIFICACIONES TÉCNICAS" data-en="TECHNICAL SPECIFICATIONS">ESPECIFICACIONES TÉCNICAS</h3>
+                    <div class="specs-scroll-area">
+                        <ul class="specs-list" id="lista-especificaciones">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instruccion-zoom" id="instruccion-zoom">
+                <span data-es="(Acercar con la rueda del mouse y mover manteniendo presionado el click izquierdo)" data-en="(Zoom in with mouse wheel and pan by holding down left click)">(Acercar con la rueda del mouse y mover manteniendo presionado el click izquierdo)</span>
+            </div>
+            
+        </div>
+    </div>
 
     <script>
         // MODO OSCURO CON MEMORIA
         const themeToggleBtn = document.getElementById('theme-toggle');
         const body = document.body;
-
-        if (localStorage.getItem('theme') === 'dark') {
-            body.classList.add('dark-mode');
-            themeToggleBtn.innerHTML = '☀️ Claro';
-        }
-
-        themeToggleBtn.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                themeToggleBtn.innerHTML = '☀️ Claro';
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeToggleBtn.innerHTML = '🌙 Oscuro';
-            }
-        });
+        if (localStorage.getItem('theme') === 'dark') { body.classList.add('dark-mode'); themeToggleBtn.innerHTML = '☀️ Claro'; }
+        themeToggleBtn.addEventListener('click', () => { body.classList.toggle('dark-mode'); localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light'); themeToggleBtn.innerHTML = body.classList.contains('dark-mode') ? '☀️ Claro' : '🌙 Oscuro'; });
 
         // IDIOMA CON MEMORIA
         const langToggleBtn = document.getElementById('lang-toggle');
         let currentLang = localStorage.getItem('lang') || 'es';
-
         function aplicarIdioma(lang) {
             langToggleBtn.innerHTML = lang === 'en' ? 'EN / ES' : 'ES / EN';
-            const elements = document.querySelectorAll('[data-es][data-en]');
-            elements.forEach(el => {
-                if (el.innerHTML.includes('<br>')) {
-                    el.innerHTML = el.getAttribute(`data-${lang}`);
-                } else {
-                    el.textContent = el.getAttribute(`data-${lang}`);
-                }
-            });
+            document.querySelectorAll('[data-es][data-en]').forEach(el => { el.innerHTML = el.getAttribute(`data-${lang}`); });
         }
-
         aplicarIdioma(currentLang);
+        langToggleBtn.addEventListener('click', () => { currentLang = currentLang === 'es' ? 'en' : 'es'; localStorage.setItem('lang', currentLang); aplicarIdioma(currentLang); cargarProyectos(); });
 
-        langToggleBtn.addEventListener('click', () => {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
-            localStorage.setItem('lang', currentLang);
-            aplicarIdioma(currentLang);
-            cargarProyectos(); 
+        // --- SISTEMA DE ZOOM DINÁMICO Y PANEO ---
+        let zoomScale = 0.63;
+        let isDragging = false;
+        let startX, startY, translateX = 100, translateY = 0;
+        
+        // --- VARIABLES GLOBALES DE GALERÍA ---
+        let proyectosGlobales = [];
+        let indiceActual = 0;
+
+        function resetZoom() {
+            zoomScale = 0.63;
+            translateX = 100;
+            translateY = 0;
+        }
+        
+        const modal = document.getElementById('visor-proyectos');
+        const contenedorSvg = document.getElementById('contenedor-svg-inyeccion');
+        const specsPanel = document.getElementById('specs-panel');
+        const listaSpecs = document.getElementById('lista-especificaciones');
+        const instruccionZoom = document.getElementById('instruccion-zoom');
+        const btnCerrar = document.getElementById('btn-cerrar-modal');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+
+        // Aislar scroll del panel lateral
+        const specsContentArea = document.getElementById('specs-content-area');
+        specsContentArea.addEventListener('wheel', (e) => { e.stopPropagation(); });
+
+        // Evento rueda para zoom dinámico hacia la posición del ratón
+        contenedorSvg.addEventListener('wheel', (e) => {
+            e.preventDefault(); 
+            const elemento = contenedorSvg.firstElementChild;
+            if (!elemento || elemento.tagName === 'SPAN') return;
+            const rect = contenedorSvg.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2, centerY = rect.top + rect.height / 2;
+            const mouseX = e.clientX - centerX, mouseY = e.clientY - centerY;
+            const pointX = (mouseX - translateX) / zoomScale, pointY = (mouseY - translateY) / zoomScale;
+            let newScale = zoomScale + (e.deltaY > 0 ? -0.15 : 0.15);
+            newScale = Math.max(0.3, Math.min(newScale, 20)); 
+            if (newScale !== zoomScale) {
+                zoomScale = newScale;
+                translateX = mouseX - pointX * zoomScale; translateY = mouseY - pointY * zoomScale;
+                elemento.style.transform = `translate(${translateX}px, ${translateY}px) scale(${zoomScale})`;
+            }
+        }, { passive: false });
+
+        // Arrastre manual (Paneo)
+        contenedorSvg.addEventListener('mousedown', (e) => {
+            const elemento = contenedorSvg.firstElementChild;
+            if (!elemento || elemento.tagName === 'SPAN') return;
+            isDragging = true; startX = e.clientX - translateX; startY = e.clientY - translateY;
+            elemento.style.cursor = 'grabbing';
+        });
+        window.addEventListener('mouseup', () => { isDragging = false; const el = contenedorSvg.firstElementChild; if (el && el.tagName !== 'SPAN') el.style.cursor = 'grab'; });
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const elemento = contenedorSvg.firstElementChild;
+            if (!elemento || elemento.tagName === 'SPAN') return;
+            e.preventDefault();
+            translateX = e.clientX - startX; translateY = e.clientY - startY;
+            elemento.style.transform = `translate(${translateX}px, ${translateY}px) scale(${zoomScale})`;
         });
 
-        // CARGA Y FILTRO DE PROYECTOS
-        async function cargarProyectos() {
-            try {
-                const respuesta = await fetch('proyectos.json');
-                const proyectos = await respuesta.json();
-                const contenedor = document.getElementById('contenedor-proyectos');
-                contenedor.innerHTML = '';
-                
-                const propTitulo = currentLang === 'en' ? 'titulo_en' : 'titulo_es';
-                let filtro = window.location.hash.substring(1); 
-                if (filtro !== 'finalizados' && filtro !== 'desarrollo') {
-                    filtro = 'todos'; 
+        function crearMensaje(contenedor, mensaje, clase = '') {
+            contenedor.replaceChildren();
+            const elemento = document.createElement('span');
+            elemento.className = clase;
+            elemento.textContent = mensaje;
+            contenedor.append(elemento);
+            return elemento;
+        }
+
+        function crearEspecificacion(texto) {
+            const item = document.createElement('li');
+            const separador = texto.indexOf(':');
+            if (separador > -1) {
+                const clave = document.createElement('strong');
+                clave.textContent = `${texto.slice(0, separador).trim()}:`;
+                item.append(clave, ` ${texto.slice(separador + 1).trim()}`);
+            } else {
+                item.textContent = texto;
+            }
+            return item;
+        }
+
+        function esRutaProyectoValida(ruta) {
+            return typeof ruta === 'string'
+                && /^img\/finalizados\/[\w .-]+\.(svg|png|jpe?g|webp)$/i.test(ruta);
+        }
+
+        // LÓGICA RECEPTORA: AHORA RECIBE EL ÍNDICE DEL PROYECTO
+        async function abrirVisor(index) {
+            indiceActual = index;
+            const proyecto = proyectosGlobales[index];
+            const rutaImagen = proyecto.imagen;
+            const esVectorial = rutaImagen.toLowerCase().endsWith('.svg');
+            
+            // Lógica de visualización de botones (Oculta extremos)
+            btnPrev.style.display = indiceActual > 0 ? 'block' : 'none';
+            btnNext.style.display = indiceActual < proyectosGlobales.length - 1 ? 'block' : 'none';
+
+            resetZoom(); 
+            modal.style.display = 'flex';
+            
+            if (esVectorial) {
+                specsPanel.style.display = 'flex';
+                instruccionZoom.style.display = 'block'; 
+                crearMensaje(
+                    contenedorSvg,
+                    currentLang === 'en' ? 'Loading technical drawing...' : 'Cargando plano técnico...',
+                    'cargando-texto'
+                );
+                const rutaTxt = rutaImagen.replace('img', 'txt').replace('.svg', '.txt');
+                listaSpecs.replaceChildren();
+
+                try {
+                    const resTxt = await fetch(rutaTxt);
+                    if (resTxt.ok) {
+                        const textoRaw = await resTxt.text();
+                        const lineas = textoRaw.split('\n');
+                        const items = lineas
+                            .map(linea => linea.trim())
+                            .filter(Boolean)
+                            .map(crearEspecificacion);
+                        listaSpecs.replaceChildren(...items);
+                    } else {
+                        listaSpecs.replaceChildren(crearEspecificacion('Ficha técnica no disponible.'));
+                    }
+                } catch (e) {
+                    listaSpecs.replaceChildren(crearEspecificacion('Error al enlazar datos BrIM.'));
                 }
 
-                const proyectosFiltrados = proyectos.filter(proyecto => {
-                    return filtro === 'todos' || proyecto.estado === filtro;
-                });
+                // Los SVG se cargan como imagen, sin inyectar contenido externo en el DOM.
+                try {
+                    const imagen = document.createElement('img');
+                    imagen.src = rutaImagen;
+                    imagen.alt = proyectosGlobales[index][currentLang === 'en' ? 'titulo_en' : 'titulo_es'] || '';
+                    imagen.style.transform = esVectorial
+                        ? 'translate(' + translateX + 'px, ' + translateY + 'px) scale(' + zoomScale + ')'
+                        : 'translate(0px, 0px) scale(1)';
+                    contenedorSvg.replaceChildren(imagen);
+                } catch (error) { 
+                    crearMensaje(contenedorSvg, 'Error al renderizar dibujo vectorial.');
+                }
 
-                proyectosFiltrados.forEach(proyecto => {
-                    contenedor.innerHTML += `
-                        <div class="proyecto-card">
-                            <img src="${proyecto.imagen}" alt="${proyecto[propTitulo]}">
-                            <div class="proyecto-info">
-                                <h3>${proyecto[propTitulo]}</h3>
-                            </div>
-                        </div>`;
-                });
-            } catch (e) {
-                console.error("Error al cargar JSON: ", e);
+            } else { 
+                specsPanel.style.display = 'none';
+                instruccionZoom.style.display = 'none'; 
+                const imagen = document.createElement('img');
+                imagen.src = rutaImagen;
+                imagen.alt = proyectosGlobales[index][currentLang === 'en' ? 'titulo_en' : 'titulo_es'] || '';
+                imagen.style.transform = 'translate(0px, 0px) scale(1)';
+                contenedorSvg.replaceChildren(imagen);
             }
         }
 
+        // CONTROL DE GALERÍA (BOTONES Y TECLADO)
+        function navegarProyecto(direccion) {
+            const nuevoIndice = indiceActual + direccion;
+            if (nuevoIndice >= 0 && nuevoIndice < proyectosGlobales.length) {
+                abrirVisor(nuevoIndice);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (modal.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') navegarProyecto(-1);
+                if (e.key === 'ArrowRight') navegarProyecto(1);
+                if (e.key === 'Escape') cerrarModal();
+            }
+        });
+
+        function cerrarModal() {
+            modal.style.display = 'none'; 
+            contenedorSvg.replaceChildren();
+            instruccionZoom.style.display = 'none';
+        }
+
+        btnCerrar.addEventListener('click', cerrarModal);
+        btnPrev.addEventListener('click', () => navegarProyecto(-1));
+        btnNext.addEventListener('click', () => navegarProyecto(1));
+        modal.onclick = function(e) { 
+            if (e.target === modal) cerrarModal(); 
+        }
+
+        // Mapeo asíncrono desde el JSON (Simplificado)
+        async function cargarProyectos() {
+            try {
+                const respuesta = await fetch('proyectos.json?v=20260826-azul-isometrica');
+                if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
+                const proyectos = await respuesta.json();
+                if (!Array.isArray(proyectos)) throw new Error('Formato de proyectos inválido');
+                const contenedor = document.getElementById('contenedor-proyectos');
+                contenedor.replaceChildren();
+                
+                const propTitulo = currentLang === 'en' ? 'titulo_en' : 'titulo_es';
+                const filtrados = proyectos.filter(p => p.estado === 'finalizados' && esRutaProyectoValida(p.imagen));
+                
+                proyectosGlobales = filtrados; // Guardamos en memoria para la navegación
+
+                filtrados.forEach((proyecto, index) => {
+                    const tarjeta = document.createElement('article');
+                    tarjeta.className = 'proyecto-card';
+                    const imagen = document.createElement('img');
+                    imagen.src = proyecto.imagen;
+                    imagen.alt = proyecto[propTitulo] || '';
+                    imagen.loading = 'lazy';
+                    imagen.addEventListener('click', () => abrirVisor(index));
+                    const info = document.createElement('div');
+                    info.className = 'proyecto-info';
+                    const titulo = document.createElement('h3');
+                    titulo.textContent = proyecto[propTitulo] || '';
+                    info.append(titulo);
+                    tarjeta.append(imagen, info);
+                    contenedor.append(tarjeta);
+                });
+            } catch (e) { console.error("Error en mapeo de proyectos:", e); }
+        }
+        
         cargarProyectos();
-        window.addEventListener('hashchange', cargarProyectos);
+
+        // --- MENÚ HAMBURGUESA ---
+        const btnHamburger = document.getElementById('btn-hamburger');
+        const menuPrincipal = document.getElementById('menu-principal');
+
+        if(btnHamburger) {
+            btnHamburger.addEventListener('click', () => {
+                menuPrincipal.classList.toggle('abierto');
+                // Cambia el texto del botón al abrir/cerrar
+                if(menuPrincipal.classList.contains('abierto')) {
+                    btnHamburger.innerHTML = '✕ CERRAR';
+                } else {
+                    btnHamburger.innerHTML = '☰ MENÚ';
+                }
+            });
+        }
     </script>
 </body>
 </html>

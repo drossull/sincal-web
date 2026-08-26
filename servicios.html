@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SINCAL – Servicios</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <link rel="icon" type="image/png" href="Sincal.png">
 </head>
 <body>
@@ -16,18 +16,13 @@
 
     <aside class="sidebar">
         <div class="sidebar-top">
+            <button class="hamburger-btn" id="btn-hamburger" aria-controls="menu-principal" aria-expanded="false">☰ MENÚ</button>
+            
             <nav>
-                <ul>
-                    <li><a href="index.html" data-es="Home" data-en="Home">Home</a></li>
+                <ul id="menu-principal">
+                    <li><a href="index.html" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
                     <li><a href="acerca.html" data-es="Acerca de Sincal" data-en="About Sincal">Acerca de Sincal</a></li>
-                    <li><a href="servicios.html" data-es="Servicios" data-en="Services">Servicios</a></li>
-                    <li class="dropdown">
-                        <a href="index.html#todos" data-es="Proyectos" data-en="Projects">Proyectos</a>
-                        <ul class="submenu">
-                            <li><a href="index.html#finalizados" data-es="- Finalizados" data-en="- Completed">- Finalizados</a></li>
-                            <li><a href="index.html#desarrollo" data-es="- En Desarrollo" data-en="- In Progress">- En Desarrollo</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="servicios.html" class="activo" data-es="Servicios" data-en="Services">Servicios</a></li>
                     <li><a href="equipo.html" data-es="Equipo" data-en="Team">Equipo</a></li>
                     <li><a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a></li>
                 </ul>
@@ -50,42 +45,197 @@
         <section class="seccion-texto">
             <div class="encabezado-seccion">
                 <h1 data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</h1>
-                <p data-es="Soluciones estructurales a la medida de tu proyecto." data-en="Structural solutions tailored to your project.">Soluciones estructurales a la medida de tu proyecto.</p>
+                <p data-es="Ingeniería estructural y servicios asociados." data-en="Structural engineering and associated services.">Ingeniería estructural y servicios asociados.</p>
             </div>
 
             <div class="acerca-contenido">
-                <p data-es="Ofrecemos un servicio integral en ingeniería estructural que abarca desde el diseño conceptual y cálculo estructural hasta la elaboración de planos constructivos y especificaciones técnicas. Trabajamos en proyectos de infraestructura vial, puentes y estructuras especiales, cumpliendo con normativas vigentes y altos estándares de calidad. Nuestro enfoque combina experiencia, precisión técnica y compromiso con cada obra." 
-                   data-en="We offer comprehensive structural engineering services ranging from conceptual design and structural calculation to the preparation of construction plans and technical specifications. We work on road infrastructure projects, bridges, and special structures, complying with current regulations and high quality standards. Our approach combines experience, technical precision, and commitment to each project.">
-                   Ofrecemos un servicio integral en ingeniería estructural que abarca desde el diseño conceptual y cálculo estructural hasta la elaboración de planos constructivos y especificaciones técnicas. Trabajamos en proyectos de infraestructura vial, puentes y estructuras especiales, cumpliendo con normativas vigentes y altos estándares de calidad. Nuestro enfoque combina experiencia, precisión técnica y compromiso con cada obra.
+                <p data-es="Ofrecemos un portafolio integral de servicios técnicos en torno a la ingeniería estructural, cubriendo desde la etapa de preinversión hasta el soporte durante la construcción." 
+                   data-en="We offer a comprehensive portfolio of technical services around structural engineering, covering from the pre-investment stage to support during construction.">
+                   Ofrecemos un portafolio integral de servicios técnicos en torno a la ingeniería estructural, cubriendo desde la etapa de preinversión hasta el soporte durante la construcción.
                 </p>
             </div>
 
-            <div class="grid-pilares">
-                <div class="pilar-card">
-                    <h3 data-es="Ingeniería Estructural (Puentes y Viaductos)" data-en="Structural Engineering (Bridges & Viaducts)">Ingeniería Estructural (Puentes y Viaductos)</h3>
-                    <p data-es="Gran capacidad en el desarrollo de proyectos viales como puentes, pasos elevados y pasarelas." data-en="High capacity in the development of road projects such as bridges, overpasses, and footbridges.">Gran capacidad en el desarrollo de proyectos viales como puentes, pasos elevados y pasarelas.</p>
+            <div class="grid-servicios-principales">
+                <div class="servicio-card">
+                    <div class="servicio-numero">01</div>
+                    <h3 data-es="Proyectos estructurales" data-en="Structural projects">Proyectos estructurales</h3>
+                    <p data-es="Ingeniería conceptual, básica y de detalle de puentes, pasos a desnivel, pasarelas y obras civiles." data-en="Conceptual, basic, and detailed engineering of bridges, overpasses, footbridges, and civil works.">Ingeniería conceptual, básica y de detalle de puentes, pasos a desnivel, pasarelas y obras civiles.</p>
                 </div>
 
-                <div class="pilar-card">
-                    <h3 data-es="Ingeniería Estructural Industrial" data-en="Industrial Structural Engineering">Ingeniería Estructural Industrial</h3>
-                    <p data-es="Contamos con un equipo especializado en el desarrollo de proyectos industriales para la minería, telecomunicaciones y otros similares." data-en="We have a specialized team in the development of industrial projects for mining, telecommunications, and similar sectors.">Contamos con un equipo especializado en el desarrollo de proyectos industriales para la minería, telecomunicaciones y otros similares.</p>
+                <div class="servicio-card">
+                    <div class="servicio-numero">02</div>
+                    <h3 data-es="Peritajes y ensayos" data-en="Expert reports and testing">Peritajes y ensayos</h3>
+                    <p data-es="Evaluación de estructuras existentes, análisis de patologías e informes técnicos." data-en="Evaluation of existing structures, pathology analysis, and technical reports.">Evaluación de estructuras existentes, análisis de patologías e informes técnicos.</p>
                 </div>
 
-                <div class="pilar-card">
-                    <h3 data-es="Estudios Geotécnicos" data-en="Geotechnical Studies">Estudios Geotécnicos</h3>
-                    <p data-es="Determinación de los parámetros geotécnicos requeridos en los distintos proyectos estructurales." data-en="Determination of the geotechnical parameters required in various structural projects.">Determinación de los parámetros geotécnicos requeridos en los distintos proyectos estructurales.</p>
+                <div class="servicio-card">
+                    <div class="servicio-numero">03</div>
+                    <h3 data-es="Asesorías en obra" data-en="On-site consulting">Asesorías en obra</h3>
+                    <p data-es="Soporte técnico durante la construcción, revisión de planos de taller y ajustes de diseño." data-en="Technical support during construction, review of shop drawings, and design adjustments.">Soporte técnico durante la construcción, revisión de planos de taller y ajustes de diseño.</p>
                 </div>
 
-                <div class="pilar-card">
-                    <h3 data-es="Hidrología" data-en="Hydrology">Hidrología</h3>
-                    <p data-es="Determinación de niveles de socavación general y local, nivel de aguas máximo, saneamiento, entre otros estudios." data-en="Determination of general and local scour levels, maximum water levels, sanitation, among other studies.">Determinación de niveles de socavación general y local, nivel de aguas máximo, saneamiento, entre otros estudios.</p>
+                <div class="servicio-card">
+                    <div class="servicio-numero">04</div>
+                    <h3 data-es="Estudios hidráulicos" data-en="Hydraulic studies">Estudios hidráulicos</h3>
+                    <p data-es="Cauces, crecidas, socavación y modelación hidrodinámica para emplazamientos de puentes." data-en="Riverbeds, floods, scour, and hydrodynamic modeling for bridge locations.">Cauces, crecidas, socavación y modelación hidrodinámica para emplazamientos de puentes.</p>
                 </div>
 
-                <div class="pilar-card">
-                    <h3 data-es="Metodologías BrIM" data-en="BrIM Methodologies">Metodologías BrIM</h3>
-                    <p data-es="Incorporamos la metodología BrIM integrando diseño, planificación y gestión de manera eficiente. Optimiza procesos, mejora la colaboración y garantiza calidad." data-en="We incorporate the BrIM methodology, efficiently integrating design, planning, and management. It optimizes processes, improves collaboration, and guarantees quality.">Incorporamos la metodología BrIM integrando diseño, planificación y gestión de manera eficiente. Optimiza procesos, mejora la colaboración y garantiza calidad.</p>
+                <div class="servicio-card">
+                    <div class="servicio-numero">05</div>
+                    <h3 data-es="Mecánica de suelos" data-en="Soil mechanics">Mecánica de suelos</h3>
+                    <p data-es="Caracterización geotécnica, fundaciones y parámetros para el diseño estructural." data-en="Geotechnical characterization, foundations, and parameters for structural design.">Caracterización geotécnica, fundaciones y parámetros para el diseño estructural.</p>
+                </div>
+
+                <div class="servicio-card">
+                    <div class="servicio-numero">06</div>
+                    <h3 data-es="Amenaza sísmica" data-en="Seismic hazard">Amenaza sísmica</h3>
+                    <p data-es="Estudios de peligro sísmico específicos de sitio y definición de espectros de diseño." data-en="Site-specific seismic hazard studies and definition of design spectra.">Estudios de peligro sísmico específicos de sitio y definición de espectros de diseño.</p>
                 </div>
             </div>
+
+            <div class="grid-servicios-secundarios">
+                <div class="servicio-secundario-item">
+                    <div class="servicio-letra">— A</div>
+                    <h3 data-es="Ingeniería conceptual y de alternativas" data-en="Conceptual and alternative engineering">Ingeniería conceptual y de alternativas</h3>
+                    <p data-es="Diagnóstico preliminar, estudio de alternativas, estimación de cantidades y costos, asesoría en bases técnicas." data-en="Preliminary diagnosis, alternative studies, quantity and cost estimation, technical basis consulting.">Diagnóstico preliminar, estudio de alternativas, estimación de cantidades y costos, asesoría en bases técnicas.</p>
+                </div>
+
+                <div class="servicio-secundario-item">
+                    <div class="servicio-letra">— B</div>
+                    <h3 data-es="Análisis sísmico avanzado" data-en="Advanced seismic analysis">Análisis sísmico avanzado</h3>
+                    <p data-es="Espectros NCh y AASHTO, análisis modal espectral, no linealidad en aisladores, verificación de desplazamientos." data-en="NCh and AASHTO spectra, spectral modal analysis, nonlinearity in isolators, displacement verification.">Espectros NCh y AASHTO, análisis modal espectral, no linealidad en aisladores, verificación de desplazamientos.</p>
+                </div>
+
+                <div class="servicio-secundario-item">
+                    <div class="servicio-letra">— C</div>
+                    <h3 data-es="Análisis de cargas especiales" data-en="Special load analysis">Análisis de cargas especiales</h3>
+                    <p data-es="Tsunami (AASHTO Guide Specs), socavación, viento, impacto vehicular y sobrecargas ferroviarias." data-en="Tsunami (AASHTO Guide Specs), scour, wind, vehicular impact, and railway surcharges.">Tsunami (AASHTO Guide Specs), socavación, viento, impacto vehicular y sobrecargas ferroviarias.</p>
+                </div>
+
+                <div class="servicio-secundario-item">
+                    <div class="servicio-letra">— D</div>
+                    <h3 data-es="Revisión técnica independiente" data-en="Independent technical review">Revisión técnica independiente</h3>
+                    <p data-es="Segundas opiniones, revisión de memorias de cálculo, auditoría de modelos FEM y verificación normativa." data-en="Second opinions, calculation memory review, FEM model audit, and normative verification.">Segundas opiniones, revisión de memorias de cálculo, auditoría de modelos FEM y verificación normativa.</p>
+                </div>
+            </div>
+
+            <div class="bloque-tipologias">
+                <div class="tipologias-titulo" data-es="TIPOLOGÍAS ESTRUCTURALES QUE CUBRIMOS" data-en="STRUCTURAL TYPOLOGIES WE COVER">TIPOLOGÍAS ESTRUCTURALES QUE CUBRIMOS</div>
+                <div class="tipologias-texto" data-es="Puentes vehiculares y ferroviarios · pasos inferiores, superiores y trincheras · pasarelas peatonales · obras civiles · estructuras viales · galpones · estructuras industriales · proyectos para minería." data-en="Vehicular and railway bridges · underpasses, overpasses, and trenches · pedestrian footbridges · civil works · road structures · warehouses · industrial structures · mining projects.">
+                    Puentes vehiculares y ferroviarios · pasos inferiores, superiores y trincheras · pasarelas peatonales · obras civiles · estructuras viales · galpones · estructuras industriales · proyectos para minería.
+                </div>
+            </div>
+
+            <div class="bloque-metodologia">
+                <h2 data-es="BrIM.<br>Parametrización total." data-en="BrIM.<br>Total parameterization.">BrIM.<br>Parametrización total.</h2>
+                <p class="metodologia-subtitulo" data-es="Nuestro diferenciador técnico: un flujo de trabajo 100% paramétrico en que el modelo estructural, el modelo 3D y los planos se generan y actualizan desde una sola fuente." data-en="Our technical differentiator: a 100% parametric workflow where the structural model, the 3D model, and the plans are generated and updated from a single source.">
+                    Nuestro diferenciador técnico: un flujo de trabajo 100% paramétrico en que el modelo estructural, el modelo 3D y los planos se generan y actualizan desde una sola fuente.
+                </p>
+
+                <div class="destacado-metodologia">
+                    <p>
+                        <span data-es="Una metodología" data-en="A methodology">Una metodología</span> 
+                        <strong class="texto-acento" data-es="única en Chile" data-en="unique in Chile">única en Chile</strong>, 
+                        <span data-es="especialmente orientada a las tipologías estructurales del país." data-en="especially oriented to the country's structural typologies.">especialmente orientada a las tipologías estructurales del país.</span>
+                    </p>
+                </div>
+
+                <div class="diagrama-container">
+                    <img src="img/diagrama_recortado.svg" alt="Diagrama BrIM" class="diagrama-img">
+                </div>
+
+                <div class="grid-metodologia">
+                    <div class="metodologia-card">
+                        <div class="metodologia-label" data-es="MOTOR PARAMÉTRICO" data-en="PARAMETRIC ENGINE">MOTOR PARAMÉTRICO</div>
+                        <h3>Rhino + Grasshopper</h3>
+                        <p data-es="Programación visual que define parámetros y reglas geométricas, con subrutinas Python y entrada de datos vía planilla Excel." data-en="Visual programming that defines parameters and geometric rules, with Python subroutines and data entry via Excel spreadsheet.">Programación visual que define parámetros y reglas geométricas, con subrutinas Python y entrada de datos vía planilla Excel.</p>
+                    </div>
+
+                    <div class="metodologia-card">
+                        <div class="metodologia-label" data-es="MODELO 3D + PLANOS" data-en="3D MODEL + PLANS">MODELO 3D + PLANOS</div>
+                        <h3>Tekla Structures</h3>
+                        <p data-es="Modelo BIM con armadura y detallamiento completo del que se extrae el 100% de los planos estructurales." data-en="BIM model with reinforcement and complete detailing from which 100% of the structural plans are extracted.">Modelo BIM con armadura y detallamiento completo del que se extrae el 100% de los planos estructurales.</p>
+                    </div>
+
+                    <div class="metodologia-card">
+                        <div class="metodologia-label" data-es="CÁLCULO ESTRUCTURAL" data-en="STRUCTURAL CALCULATION">CÁLCULO ESTRUCTURAL</div>
+                        <h3>RFEM 6 · SOFiSTiK</h3>
+                        <p data-es="Programas de última generación para los análisis más complejos. Exportación directa a SAP2000 cuando se requiere." data-en="State-of-the-art programs for the most complex analyses. Direct export to SAP2000 when required.">Programas de última generación para los análisis más complejos. Exportación directa a SAP2000 cuando se requiere.</p>
+                    </div>
+                </div>
+
+                <div class="banner-pioneros">
+                    <div class="pioneros-label" data-es="PIONEROS EN CHILE" data-en="PIONEERS IN CHILE">PIONEROS EN CHILE</div>
+                    <div class="pioneros-texto" data-es="Aplicamos esta metodología a proyectos de concesiones viales y a estructuras complejas como puentes colgantes, con ventajas concretas en reducción de errores y tiempos de iteración." data-en="We apply this methodology to road concession projects and complex structures such as suspension bridges, with concrete advantages in reducing errors and iteration times.">
+                        Aplicamos esta metodología a proyectos de concesiones viales y a estructuras complejas como puentes colgantes, con ventajas concretas en reducción de errores y tiempos de iteración.
+                    </div>
+                </div>
+            </div>
+
+            <div class="bloque-herramientas">
+                <h2 data-es="Herramientas propias,<br>porque el detalle importa." data-en="Proprietary tools,<br>because details matter.">Herramientas propias,<br>porque el detalle importa.</h2>
+                <p class="metodologia-subtitulo" data-es="Mantenemos un área interna de I+D que evoluciona nuestro stack técnico con solvers y exportadores desarrollados in-house, orientados a dar control total sobre el cálculo y la generación de modelos BIM." data-en="We maintain an internal R&D area that evolves our technical stack with in-house developed solvers and exporters, aimed at providing total control over calculation and BIM model generation.">
+                    Mantenemos un área interna de I+D que evoluciona nuestro stack técnico con solvers y exportadores desarrollados in-house, orientados a dar control total sobre el cálculo y la generación de modelos BIM.
+                </p>
+
+                <div class="grid-herramientas">
+                    <div class="herramienta-card">
+                        <div class="herramienta-badge" data-es="SOLVER FEM" data-en="FEM SOLVER">SOLVER FEM</div>
+                        <h3>bridge-fem</h3>
+                        <p class="herramienta-tech">Rust · PyO3 · Sparse linear algebra</p>
+                        <p class="herramienta-desc" data-es="Solver FEM desarrollado desde cero en Rust, con bindings PyO3 para integración con Python. Pensado específicamente para el tamaño y la topología de los modelos de puentes viales." data-en="FEM Solver developed from scratch in Rust, with PyO3 bindings for Python integration. Designed specifically for the size and topology of road bridge models.">Solver FEM desarrollado desde cero en Rust, con bindings PyO3 para integración con Python. Pensado específicamente para el tamaño y la topología de los modelos de puentes viales.</p>
+                        
+                        <ul class="herramienta-lista">
+                            <li data-es="Elementos frame Timoshenko + shell MITC4 / Batoz-Zienkiewicz" data-en="Timoshenko frame elements + MITC4 / Batoz-Zienkiewicz shell">Elementos frame Timoshenko + shell MITC4 / Batoz-Zienkiewicz</li>
+                            <li data-es="Ensamblaje sparse CSR · solvers LDLT y PCG" data-en="Sparse CSR assembly · LDLT and PCG solvers">Ensamblaje sparse CSR · solvers LDLT y PCG</li>
+                            <li data-es="Modal espectral con Lanczos shift-invert + Cholesky sparse" data-en="Spectral modal with Lanczos shift-invert + sparse Cholesky">Modal espectral con Lanczos shift-invert + Cholesky sparse</li>
+                            <li data-es="Espectros Manual de Carreteras Vol. 3, AASHTO y combinaciones CQC / SRSS" data-en="Highway Manual Vol. 3 spectra, AASHTO and CQC / SRSS combinations">Espectros Manual de Carreteras Vol. 3, AASHTO y combinaciones CQC / SRSS</li>
+                            <li data-es="Aceleración ~1500x vs. implementación dense en modal" data-en="~1500x speedup vs. dense implementation in modal">Aceleración ~1500x vs. implementación dense en modal</li>
+                        </ul>
+                    </div>
+
+                    <div class="herramienta-card">
+                        <div class="herramienta-badge" data-es="BIM BACKEND" data-en="BIM BACKEND">BIM BACKEND</div>
+                        <h3>bridge-ifc</h3>
+                        <p class="herramienta-tech">Rust · PyO3 · IFC4x3 SPF direct</p>
+                        <p class="herramienta-desc" data-es="Crate independiente de Rust para generación IFC, sin dependencia de ningún CAD. Diseño en dos capas: API de dominio de alto nivel + API de esquema IFC de bajo nivel." data-en="Independent Rust crate for IFC generation, with no CAD dependency. Two-layer design: high-level domain API + low-level IFC schema API.">Crate independiente de Rust para generación IFC, sin dependencia de ningún CAD. Diseño en dos capas: API de dominio de alto nivel + API de esquema IFC de bajo nivel.</p>
+                        
+                        <ul class="herramienta-lista">
+                            <li data-es="Escritura directa SPF (STEP Physical File) de IFC4x3" data-en="Direct SPF (STEP Physical File) writing of IFC4x3">Escritura directa SPF (STEP Physical File) de IFC4x3</li>
+                            <li data-es="API de dominio para puentes (deck, pier, abutment, bearing)" data-en="Domain API for bridges (deck, pier, abutment, bearing)">API de dominio para puentes (deck, pier, abutment, bearing)</li>
+                            <li data-es="Bindings PyO3 consistentes con bridge-fem" data-en="PyO3 bindings consistent with bridge-fem">Bindings PyO3 consistentes con bridge-fem</li>
+                            <li data-es="Validable contra buildingSMART" data-en="Validatable against buildingSMART">Validable contra buildingSMART</li>
+                            <li data-es="Portable y embebible en distintos pipelines" data-en="Portable and embeddable in different pipelines">Portable y embebible en distintos pipelines</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="banner-freecad">
+                    <p data-es="<strong>FreeCAD + IFC4x3:</strong> En paralelo, desarrollamos un pipeline abierto basado en FreeCAD con un exportador IFC4x3 propio y automatización de planos TechDraw, orientado a proyectos que requieren un flujo BIM totalmente libre y auditable." data-en="<strong>FreeCAD + IFC4x3:</strong> In parallel, we developed an open pipeline based on FreeCAD with our own IFC4x3 exporter and TechDraw plan automation, aimed at projects that require a completely free and auditable BIM flow.">
+                        <strong>FreeCAD + IFC4x3:</strong> En paralelo, desarrollamos un pipeline abierto basado en FreeCAD con un exportador IFC4x3 propio y automatización de planos TechDraw, orientado a proyectos que requieren un flujo BIM totalmente libre y auditable.
+                    </p>
+                </div>
+
+                <div class="grid-metricas">
+                    <div class="metrica-card">
+                        <div class="metrica-valor">~1500×</div>
+                        <div class="metrica-label" data-es="SPEEDUP MODAL<br>SHIFT-INVERT<br>LANCZOS" data-en="MODAL SPEEDUP<br>SHIFT-INVERT<br>LANCZOS">SPEEDUP MODAL<br>SHIFT-INVERT<br>LANCZOS</div>
+                    </div>
+                    <div class="metrica-card">
+                        <div class="metrica-valor">2</div>
+                        <div class="metrica-label" data-es="CRATES RUST<br>INDEPENDIENTES" data-en="INDEPENDENT<br>RUST CRATES">CRATES RUST<br>INDEPENDIENTES</div>
+                    </div>
+                    <div class="metrica-card">
+                        <div class="metrica-valor">IFC4x3</div>
+                        <div class="metrica-label" data-es="ESTÁNDAR BIM<br>ACTUAL" data-en="CURRENT BIM<br>STANDARD">ESTÁNDAR BIM<br>ACTUAL</div>
+                    </div>
+                    <div class="metrica-card">
+                        <div class="metrica-valor">100%</div>
+                        <div class="metrica-label" data-es="CÓDIGO PROPIO<br>VERIFICABLE" data-en="VERIFIABLE<br>PROPRIETARY CODE">CÓDIGO PROPIO<br>VERIFICABLE</div>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
 
@@ -102,24 +252,35 @@
             themeToggleBtn.innerHTML = body.classList.contains('dark-mode') ? '☀️ Claro' : '🌙 Oscuro';
         });
 
+        // IDIOMA CON MEMORIA
         const langToggleBtn = document.getElementById('lang-toggle');
         let currentLang = localStorage.getItem('lang') || 'es';
+
         function aplicarIdioma(lang) {
             langToggleBtn.innerHTML = lang === 'en' ? 'EN / ES' : 'ES / EN';
             document.querySelectorAll('[data-es][data-en]').forEach(el => {
-                if (el.innerHTML.includes('<br>')) {
-                    el.innerHTML = el.getAttribute(`data-${lang}`);
-                } else {
-                    el.textContent = el.getAttribute(`data-${lang}`);
-                }
+                el.innerHTML = el.getAttribute(`data-${lang}`);
             });
         }
+
         aplicarIdioma(currentLang);
+
         langToggleBtn.addEventListener('click', () => {
             currentLang = currentLang === 'es' ? 'en' : 'es';
             localStorage.setItem('lang', currentLang);
             aplicarIdioma(currentLang);
         });
+
+        const btnHamburger = document.getElementById('btn-hamburger');
+        const menuPrincipal = document.getElementById('menu-principal');
+
+        if (btnHamburger && menuPrincipal) {
+            btnHamburger.addEventListener('click', () => {
+                const abierto = menuPrincipal.classList.toggle('abierto');
+                btnHamburger.textContent = abierto ? '✕ CERRAR' : '☰ MENÚ';
+                btnHamburger.setAttribute('aria-expanded', String(abierto));
+            });
+        }
     </script>
 </body>
 </html>

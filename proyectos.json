@@ -1,38 +1,20 @@
 [
     {
-        "imagen": "img/finalizados/proyecto1.jpg",
-        "titulo_es": "Edificio Norte",
-        "titulo_en": "North Building",
+        "imagen": "img/finalizados/CANCURA.svg",
+        "titulo_es": "Puente Cancura",
+        "titulo_en": "Cancura Bridge",
         "estado": "finalizados"
     },
     {
-        "imagen": "img/finalizados/proyecto2.jpg",
-        "titulo_es": "Puente Sur",
-        "titulo_en": "South Bridge",
+        "imagen": "img/finalizados/POLPAICO.svg",
+        "titulo_es": "Puente Polpaico",
+        "titulo_en": "Polpaico Bridge",
         "estado": "finalizados"
     },
     {
-        "imagen": "img/finalizados/proyecto3.jpg",
-        "titulo_es": "Planta Industrial",
-        "titulo_en": "Industrial Plant",
+        "imagen": "img/finalizados/PVI-SAN MARTIN.svg",
+        "titulo_es": "Paso Vehicular Inferior San Martín",
+        "titulo_en": "Saint Martin Underpass",
         "estado": "finalizados"
-    },
-    {
-        "imagen": "img/desarrollo/proyecto4.jpg",
-        "titulo_es": "Centro Logístico",
-        "titulo_en": "Logistics Center",
-        "estado": "desarrollo"
-    },
-    {
-        "imagen": "img/desarrollo/proyecto5.jpg",
-        "titulo_es": "Complejo Habitacional",
-        "titulo_en": "Residential Complex",
-        "estado": "desarrollo"
-    },
-    {
-        "imagen": "img/desarrollo/proyecto6.jpg",
-        "titulo_es": "Hospital Central",
-        "titulo_en": "Central Hospital",
-        "estado": "desarrollo"
     }
 ]
