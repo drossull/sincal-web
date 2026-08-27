@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SINCAL – Ingeniería</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260826-3">
     <link rel="icon" type="image/png" href="Sincal.png">
 
     <style>
@@ -556,7 +556,7 @@
         // Mapeo asíncrono desde el JSON (Simplificado)
         async function cargarProyectos() {
             try {
-                const respuesta = await fetch('proyectos.json?v=20260826-azul-isometrica');
+                const respuesta = await fetch('proyectos.json?v=20260826-3');
                 if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
                 const proyectos = await respuesta.json();
                 if (!Array.isArray(proyectos)) throw new Error('Formato de proyectos inválido');
