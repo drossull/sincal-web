@@ -44,6 +44,20 @@
             opacity: 0.85;
         }
 
+        /* En móvil los DXF/SVG incluyen márgenes de plano: acercamos la vista
+           sin cambiar los archivos técnicos ni recortar la tarjeta. */
+        @media (max-width: 650px) {
+            .proyecto-card img {
+                padding: 12px;
+                transform: scale(2.6);
+                transform-origin: center;
+            }
+
+            .proyecto-card:hover img {
+                transform: scale(2.6);
+            }
+        }
+
         /* 2. Estilos del Modal (Lightbox) */
         .modal-visor {
             display: none; 
