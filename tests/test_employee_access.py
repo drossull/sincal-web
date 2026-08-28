@@ -9,14 +9,16 @@ PUBLIC_PAGES = ("index.html", "acerca.html", "servicios.html", "equipo.html", "c
 
 
 class EmployeeAccessTests(unittest.TestCase):
-    def test_worker_access_is_not_exposed_in_public_navigation(self) -> None:
+    def test_worker_access_is_nested_below_team_on_every_public_page(self) -> None:
         for filename in PUBLIC_PAGES:
             with self.subTest(filename=filename):
                 html = (ROOT / filename).read_text(encoding="utf-8")
-                self.assertNotIn('href="trabajadores.html"', html)
+                self.assertIn('class="worker-submenu"', html)
+                self.assertEqual(html.count('href="/trabajadores"'), 1)
 
         apache_rules = (ROOT / ".htaccess").read_text(encoding="utf-8")
-        self.assertIn("^trabajadores(?:\\.html)?/?$ - [R=404,L]", apache_rules)
+        self.assertIn("^trabajadores(?:\\.html)?/?$ https://", apache_rules)
+        self.assertIn("[R=302,L,NE]", apache_rules)
 
     def test_worker_page_has_secure_direct_login_contract(self) -> None:
         html = (ROOT / "trabajadores.html").read_text(encoding="utf-8")

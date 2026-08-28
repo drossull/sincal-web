@@ -2,14 +2,15 @@
 
 ## Acceso interno Cadence
 
-La navegación pública no muestra **Acceso trabajadores**. Mientras Cadence no
-tenga un backend HTTPS publicado, Apache devuelve `404` para `/trabajadores` y
-`/trabajadores.html`; el formulario se conserva únicamente para pruebas locales.
+La navegación pública muestra **Acceso trabajadores** como subopción de
+**Equipo**. Durante la prueba, `/trabajadores` redirige mediante Apache al túnel
+HTTPS temporal de Cadence. Sólo permanece activa la cuenta provisional de
+administración; las cuentas del equipo se conservan desactivadas.
 
-En desarrollo local, el navegador envía las credenciales directamente a
-Cadence; el hosting estático no las persiste ni actúa como intermediario. La
-publicación futura debe coordinarse con DNS, TLS, proxy inverso, autenticación
-obligatoria y `CADENCE_LOGIN_ORIGINS` en el servicio Cadence.
+La contraseña se envía directamente a Cadence; el hosting estático no la
+persiste ni actúa como intermediario. El túnel depende del equipo local y se
+reemplazará por DNS, TLS y un proxy estable antes de habilitar al resto del
+equipo.
 La recuperación no es autónoma: la página indica que una contraseña olvidada
 debe ser regenerada por el administrador de Sincal.
 
