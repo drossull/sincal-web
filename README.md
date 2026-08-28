@@ -4,8 +4,10 @@
 
 La navegación pública muestra **Acceso trabajadores** como subopción de
 **Equipo**. Durante la prueba, `/trabajadores` redirige mediante Apache al túnel
-HTTPS temporal de Cadence. Sólo permanece activa la cuenta provisional de
-administración; las cuentas del equipo se conservan desactivadas.
+HTTPS temporal de Cadence. Durante la prueba permanece activa únicamente la
+cuenta autorizada de Gonzalo Mardones; las demás cuentas se conservan desactivadas.
+
+Destino temporal vigente: `https://89f583671210bd.lhr.life/`.
 
 La contraseña se envía directamente a Cadence; el hosting estático no la
 persiste ni actúa como intermediario. El túnel depende del equipo local y se
