@@ -861,7 +861,7 @@ button, .btn-descarga, .btn-contacto, .btn-proyecto, .hamburger-btn {
 /* --- RESPONSIVIDAD PARA MÓVILES Y TABLETS --- */
 /* ======================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1000px), (pointer: coarse) {
     body {
         display: block;
     }
@@ -944,7 +944,7 @@ button, .btn-descarga, .btn-contacto, .btn-proyecto, .hamburger-btn {
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 650px), (pointer: coarse) {
     .top-controls {
         top: 12px;
         right: 12px;

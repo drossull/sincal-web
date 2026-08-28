@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SINCAL – Ingeniería</title>
-    <link rel="stylesheet" href="styles.css?v=20260826-4">
+    <link rel="stylesheet" href="styles.css?v=20260828-5">
     <link rel="icon" type="image/png" href="Sincal.png">
 
     <style>
@@ -46,7 +46,7 @@
 
         /* En móvil los DXF/SVG incluyen márgenes de plano: acercamos la vista
            sin cambiar los archivos técnicos ni recortar la tarjeta. */
-        @media (max-width: 650px) {
+        @media (max-width: 650px), (pointer: coarse) {
             .proyecto-card img {
                 padding: 12px;
                 transform: scale(2.6);
@@ -251,7 +251,7 @@
 
         /* Visor táctil: la isométrica ocupa la parte superior y la ficha queda
            debajo. El corte cubre también móviles que reportan un viewport ancho. */
-        @media (max-width: 1000px) {
+        @media (max-width: 1000px), (pointer: coarse) {
             .modal-contenido-svg {
                 width: 100%;
                 height: 100dvh;
