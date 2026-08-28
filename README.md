@@ -7,7 +7,7 @@ La navegación pública muestra **Acceso trabajadores** como subopción de
 HTTPS temporal de Cadence. Durante la prueba permanece activa únicamente la
 cuenta autorizada de Gonzalo Mardones; las demás cuentas se conservan desactivadas.
 
-Destino temporal vigente: `https://89f583671210bd.lhr.life/`.
+Destino temporal vigente: `https://733d61d513aaf9.lhr.life/`.
 
 La contraseña se envía directamente a Cadence; el hosting estático no la
 persiste ni actúa como intermediario. El túnel depende del equipo local y se
