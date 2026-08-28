@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINCAL – Acceso trabajadores</title>
+    <link rel="stylesheet" href="styles.css?v=20260828-7">
+    <link rel="icon" type="image/png" href="Sincal.png">
+</head>
+<body>
+    <div class="top-controls">
+        <button class="btn-control" id="lang-toggle" type="button">ES / EN</button>
+        <button class="btn-control" id="theme-toggle" type="button">🌙 Oscuro</button>
+    </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <button class="hamburger-btn" id="btn-hamburger" type="button" aria-controls="menu-principal" aria-expanded="false">☰ MENÚ</button>
+            <nav aria-label="Navegación principal">
+                <ul id="menu-principal">
+                    <li><a href="index.html" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+                    <li><a href="acerca.html" data-es="Acerca de Sincal" data-en="About Sincal">Acerca de Sincal</a></li>
+                    <li><a href="servicios.html" data-es="Servicios" data-en="Services">Servicios</a></li>
+                    <li class="menu-equipo">
+                        <a href="equipo.html" data-es="Equipo" data-en="Team">Equipo</a>
+                        <ul class="worker-submenu">
+                            <li><a class="acceso-trabajadores activo" href="trabajadores.html" aria-current="page" data-es="Acceso trabajadores" data-en="Employee access">Acceso trabajadores</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+            <p data-es="San Pío X 2460, oficina 1801<br>Providencia, Santiago, Chile" data-en="2460 San Pío X, Suite 1801<br>Providencia, Santiago, Chile">San Pío X 2460, oficina 1801<br>Providencia, Santiago, Chile</p>
+            <p class="copyright">&copy; 2026 SINCAL</p>
+        </div>
+    </aside>
+
+    <main class="contenido-principal">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="Sincal.png" alt="Logo SINCAL" class="logo-main">
+            </a>
+        </div>
+
+        <section class="employee-portal" aria-labelledby="employee-title">
+            <p class="employee-portal__eyebrow" data-es="PLATAFORMA INTERNA · SINCAL CADENCE" data-en="INTERNAL PLATFORM · SINCAL CADENCE">PLATAFORMA INTERNA · SINCAL CADENCE</p>
+            <h1 id="employee-title" data-es="Acceso para trabajadores" data-en="Employee access">Acceso para trabajadores</h1>
+            <p class="employee-portal__intro" data-es="Ingresa a la planificación, los proyectos y las estructuras que corresponden a tu rol dentro de Solar Ingenieros Calculistas Limitada." data-en="Access the planning, projects and structures assigned to your role at Solar Ingenieros Calculistas Limitada.">Ingresa a la planificación, los proyectos y las estructuras que corresponden a tu rol dentro de Solar Ingenieros Calculistas Limitada.</p>
+
+            <div class="employee-login">
+                <div class="employee-login__context">
+                    <div>
+                        <p class="employee-portal__eyebrow" data-es="UNA VISTA PARA CADA ROL" data-en="A VIEW FOR EACH ROLE">UNA VISTA PARA CADA ROL</p>
+                        <h2 data-es="Organización semanal en pocos minutos." data-en="Weekly planning in a few minutes.">Organización semanal en pocos minutos.</h2>
+                        <p data-es="El administrador ve la empresa completa; cada ingeniero, sus proyectos; y cada proyectista, las estructuras que tiene asignadas." data-en="Administrators see the whole company; engineers see their projects; and drafters see their assigned structures.">El administrador ve la empresa completa; cada ingeniero, sus proyectos; y cada proyectista, las estructuras que tiene asignadas.</p>
+                    </div>
+                    <ul aria-label="Perfiles disponibles">
+                        <li data-es="ADMINISTRADOR · panorama general, avisos y adjudicaciones" data-en="ADMINISTRATOR · overview, alerts and assignments">ADMINISTRADOR · panorama general, avisos y adjudicaciones</li>
+                        <li data-es="INGENIERO · proyectos y estructuras bajo su responsabilidad" data-en="ENGINEER · projects and structures under their responsibility">INGENIERO · proyectos y estructuras bajo su responsabilidad</li>
+                        <li data-es="PROYECTISTA · trabajo semanal, entregas e historial" data-en="DRAFTER · weekly work, deliveries and history">PROYECTISTA · trabajo semanal, entregas e historial</li>
+                    </ul>
+                </div>
+
+                <div class="employee-login__form-wrap">
+                    <h2 data-es="Iniciar sesión" data-en="Sign in">Iniciar sesión</h2>
+                    <p data-es="Usa las credenciales entregadas por Sincal." data-en="Use the credentials provided by Sincal.">Usa las credenciales entregadas por Sincal.</p>
+                    <form class="employee-login__form" id="employee-login-form" novalidate>
+                        <div class="employee-login__field">
+                            <label for="employee-username" data-es="Usuario" data-en="Username">Usuario</label>
+                            <input id="employee-username" name="username" type="text" inputmode="email" autocomplete="username" spellcheck="false" required aria-required="true" placeholder="usuario@sincal.cl">
+                        </div>
+                        <div class="employee-login__field">
+                            <label for="employee-password" data-es="Contraseña" data-en="Password">Contraseña</label>
+                            <input id="employee-password" name="password" type="password" autocomplete="current-password" required aria-required="true">
+                        </div>
+                        <button class="employee-login__submit" id="employee-login-submit" type="submit" data-es="Entrar a Sincal Cadence" data-en="Enter Sincal Cadence">Entrar a Sincal Cadence</button>
+                        <p class="employee-login__status" id="employee-login-status" role="status" aria-live="polite"></p>
+                    </form>
+                    <p class="employee-login__support" data-es="¿Olvidaste tu contraseña? Solicita una nueva al administrador. No existe restablecimiento automático." data-en="Forgot your password? Ask the administrator for a new one. There is no automatic reset.">¿Olvidaste tu contraseña? Solicita una nueva al administrador. No existe restablecimiento automático.</p>
+                    <p class="employee-login__privacy" data-es="La contraseña se envía directamente al servicio protegido de Sincal Cadence. Esta página no la almacena." data-en="Your password is sent directly to the protected Sincal Cadence service. This page does not store it.">La contraseña se envía directamente al servicio protegido de Sincal Cadence. Esta página no la almacena.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const body = document.body;
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const langToggleBtn = document.getElementById('lang-toggle');
+        const loginForm = document.getElementById('employee-login-form');
+        const loginButton = document.getElementById('employee-login-submit');
+        const loginStatus = document.getElementById('employee-login-status');
+        const localPreview = ['127.0.0.1', 'localhost'].includes(window.location.hostname);
+        const cadenceOrigin = localPreview ? 'http://127.0.0.1:8080' : 'https://cadence.sincal.cl';
+        let currentLang = localStorage.getItem('lang') || 'es';
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+        }
+
+        function updateThemeLabel() {
+            themeToggleBtn.textContent = body.classList.contains('dark-mode')
+                ? (currentLang === 'es' ? '☀️ Claro' : '☀️ Light')
+                : (currentLang === 'es' ? '🌙 Oscuro' : '🌙 Dark');
+        }
+
+        function aplicarIdioma(lang) {
+            currentLang = lang;
+            langToggleBtn.textContent = lang === 'en' ? 'EN / ES' : 'ES / EN';
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-es][data-en]').forEach((element) => {
+                element.innerHTML = element.getAttribute(`data-${lang}`);
+            });
+            updateThemeLabel();
+        }
+
+        aplicarIdioma(currentLang);
+
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+            updateThemeLabel();
+        });
+
+        langToggleBtn.addEventListener('click', () => {
+            const nextLanguage = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('lang', nextLanguage);
+            aplicarIdioma(nextLanguage);
+        });
+
+        const btnHamburger = document.getElementById('btn-hamburger');
+        const menuPrincipal = document.getElementById('menu-principal');
+        btnHamburger.addEventListener('click', () => {
+            const isOpen = menuPrincipal.classList.toggle('abierto');
+            btnHamburger.setAttribute('aria-expanded', String(isOpen));
+            btnHamburger.textContent = isOpen ? '✕ CERRAR' : '☰ MENÚ';
+        });
+
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            loginStatus.classList.remove('is-success');
+            loginStatus.textContent = '';
+
+            if (!loginForm.reportValidity()) {
+                return;
+            }
+
+            const formData = new FormData(loginForm);
+            loginButton.disabled = true;
+            loginButton.textContent = currentLang === 'es' ? 'Ingresando…' : 'Signing in…';
+
+            try {
+                const response = await fetch(`${cadenceOrigin}/api/auth/login`, {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        email: String(formData.get('username') || '').trim(),
+                        password: String(formData.get('password') || '')
+                    })
+                });
+                const payload = await response.json().catch(() => ({}));
+                if (!response.ok) {
+                    throw new Error(payload.error || (currentLang === 'es' ? 'No fue posible iniciar sesión.' : 'Unable to sign in.'));
+                }
+
+                loginStatus.classList.add('is-success');
+                loginStatus.textContent = currentLang === 'es' ? 'Acceso correcto. Abriendo Sincal Cadence…' : 'Access granted. Opening Sincal Cadence…';
+                window.location.assign(`${cadenceOrigin}/`);
+            } catch (error) {
+                loginStatus.textContent = error instanceof Error
+                    ? error.message
+                    : (currentLang === 'es' ? 'No fue posible iniciar sesión.' : 'Unable to sign in.');
+                loginButton.disabled = false;
+                loginButton.textContent = currentLang === 'es' ? 'Entrar a Sincal Cadence' : 'Enter Sincal Cadence';
+            }
+        });
+    </script>
+</body>
+</html>
