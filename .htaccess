@@ -8,5 +8,5 @@
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteRule ^trabajadores(?:\.html)?/?$ https://eb137ed885cd40.lhr.life/ [R=302,L,NE]
+  RewriteRule ^trabajadores(?:\.html)?/?$ https://b82f262f2cf43a.lhr.life/ [R=302,L,NE]
 </IfModule>
