@@ -7,16 +7,14 @@ La navegación pública muestra **Acceso trabajadores** como subopción de
 el inicio de sesión directamente al servicio oficial
 `https://cadence.sincal.cl`; no redirige a túneles temporales.
 
-Mientras se crea el subdominio oficial, la ruta visible del menú
-`/trabajadores` usa una redirección `302` a la vista previa vigente para que las
-cuentas habilitadas puedan iniciar sesión en el mismo origen de Cadence. Esta
-regla debe retirarse en el corte definitivo.
+La ruta visible del menú `/trabajadores` redirige al servicio permanente en
+`https://cadence.sincal.cl`, de modo que las cuentas habilitadas inicien sesión
+en el mismo origen de Cadence.
 
 La contraseña se envía directamente a Cadence; el hosting estático no la
-persiste ni actúa como intermediario. Cadence debe publicarse en un servidor
-permanente, con DNS, TLS, PostgreSQL y un proxy estable, antes de habilitar al
-resto del equipo. Los túneles se usan únicamente para vistas previas de
-desarrollo.
+persiste ni actúa como intermediario. La publicación oficial usa DNS, TLS y el
+runtime Python permanente del hosting. Los túneles se reservan únicamente para
+vistas previas de desarrollo.
 La recuperación no es autónoma: la página indica que una contraseña olvidada
 debe ser regenerada por el administrador de Sincal.
 

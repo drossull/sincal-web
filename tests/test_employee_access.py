@@ -17,8 +17,9 @@ class EmployeeAccessTests(unittest.TestCase):
                 self.assertEqual(html.count('href="/trabajadores"'), 1)
 
         apache_rules = (ROOT / ".htaccess").read_text(encoding="utf-8")
-        self.assertIn("^trabajadores/?$ https://", apache_rules)
+        self.assertIn("^trabajadores/?$ https://cadence.sincal.cl/", apache_rules)
         self.assertIn("[R=302,L,NE]", apache_rules)
+        self.assertNotIn("lhr.life", apache_rules)
 
     def test_worker_page_has_secure_direct_login_contract(self) -> None:
         html = (ROOT / "trabajadores.html").read_text(encoding="utf-8")
