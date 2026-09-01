@@ -8,5 +8,6 @@
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteRule ^trabajadores/?$ trabajadores.html [L]
+  # Acceso temporal mientras cadence.sincal.cl queda habilitado en DNS.
+  RewriteRule ^trabajadores/?$ https://e39f2930a10c87.lhr.life/ [R=302,L,NE]
 </IfModule>
