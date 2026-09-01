@@ -171,9 +171,14 @@
                 loginStatus.textContent = currentLang === 'es' ? 'Acceso correcto. Abriendo Sincal Cadence…' : 'Access granted. Opening Sincal Cadence…';
                 window.location.assign(`${cadenceOrigin}/`);
             } catch (error) {
-                loginStatus.textContent = error instanceof Error
-                    ? error.message
-                    : (currentLang === 'es' ? 'No fue posible iniciar sesión.' : 'Unable to sign in.');
+                const networkError = error instanceof TypeError;
+                loginStatus.textContent = networkError
+                    ? (currentLang === 'es'
+                        ? 'No fue posible conectar con Sincal Cadence. Intenta nuevamente en unos minutos.'
+                        : 'Unable to connect to Sincal Cadence. Please try again in a few minutes.')
+                    : (error instanceof Error
+                        ? error.message
+                        : (currentLang === 'es' ? 'No fue posible iniciar sesión.' : 'Unable to sign in.'));
                 loginButton.disabled = false;
                 loginButton.textContent = currentLang === 'es' ? 'Entrar a Sincal Cadence' : 'Enter Sincal Cadence';
             }

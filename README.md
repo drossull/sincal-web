@@ -3,16 +3,15 @@
 ## Acceso interno Cadence
 
 La navegación pública muestra **Acceso trabajadores** como subopción de
-**Equipo**. Durante la prueba, `/trabajadores` redirige mediante Apache al túnel
-HTTPS temporal de Cadence. Durante la prueba permanece activa únicamente la
-cuenta autorizada de Gonzalo Mardones; las demás cuentas se conservan desactivadas.
-
-Destino temporal vigente: `https://410967f32854de.lhr.life/`.
+**Equipo**. `/trabajadores.html` conserva el formulario en `sincal.cl` y envía
+el inicio de sesión directamente al servicio oficial
+`https://cadence.sincal.cl`; no redirige a túneles temporales.
 
 La contraseña se envía directamente a Cadence; el hosting estático no la
-persiste ni actúa como intermediario. El túnel depende del equipo local y se
-reemplazará por DNS, TLS y un proxy estable antes de habilitar al resto del
-equipo.
+persiste ni actúa como intermediario. Cadence debe publicarse en un servidor
+permanente, con DNS, TLS, PostgreSQL y un proxy estable, antes de habilitar al
+resto del equipo. Los túneles se usan únicamente para vistas previas de
+desarrollo.
 La recuperación no es autónoma: la página indica que una contraseña olvidada
 debe ser regenerada por el administrador de Sincal.
 

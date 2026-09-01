@@ -5,8 +5,3 @@
     Header set Expires "0"
   </FilesMatch>
 </IfModule>
-
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteRule ^trabajadores(?:\.html)?/?$ https://336a94dcff499c.lhr.life/ [R=302,L,NE]
-</IfModule>
