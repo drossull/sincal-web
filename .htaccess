@@ -5,3 +5,8 @@
     Header set Expires "0"
   </FilesMatch>
 </IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^trabajadores/?$ trabajadores.html [L]
+</IfModule>
